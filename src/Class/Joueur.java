@@ -1,25 +1,29 @@
 package Class;
 
 public class Joueur extends Vivant{
-	private Position lastpos;
+	private Piece piece;
 	
 	public Joueur(String Nom) {
 		super(Nom,10);
 
-		this.lastpos = lastpos; 
+		this.piece = piece; 
 	}
 
-	public Position getLastpos() {
-		return lastpos;
+	public Piece getPiece() {
+		return piece;
+	}
+	public void setPiece(Piece piece) {
+		this.piece = piece;
 	}
 
-	public void setLastpos(Position lastpos) {
-		this.lastpos = lastpos;
-	}
-	
-	public void seDeplacer(String dest){
+	public void seDeplacer(char dest){
 		Piece pieceActuelle = this.getPiece();
-		
+		Posion pos = new pos(pieceActuelle.getPos().getX(),pieceActuelle.get);
+		if (dest == 'N'){
+			
+			pieceActuelle.getPos(); 
+			pieceActuelle.setPos();
+		}
 	}
 }
 

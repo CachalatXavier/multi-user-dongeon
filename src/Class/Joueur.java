@@ -18,12 +18,20 @@ public class Joueur extends Vivant{
 
 	public void seDeplacer(char dest){
 		Piece pieceActuelle = this.getPiece();
-		Posion pos = new pos(pieceActuelle.getPos().getX(),pieceActuelle.get);
+		Position pos = new Position(pieceActuelle.getPos().getX(),pieceActuelle.getPos().getY());
 		if (dest == 'N'){
-			
-			pieceActuelle.getPos(); 
-			pieceActuelle.setPos();
+			pos.setY(pos.getY()-1);
 		}
+		if (dest == 'S'){
+			pos.setY(pos.getY()+1);
+		}
+		if (dest == 'E'){
+			pos.setX(pos.getX()+1);
+		}
+		if (dest == 'O'){
+			pos.setX(pos.getX()-1);
+		}
+		pieceActuelle.setPos(pos);
 	}
 }
 

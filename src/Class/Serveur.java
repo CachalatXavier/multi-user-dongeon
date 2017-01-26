@@ -41,9 +41,12 @@ public class Serveur {
 		    		Scanner perso = new Scanner(System.in);
 		  		  	String nom = perso.nextLine();
 		  		  	System.out.println("Votre Personnage s'apelle: "+nom);
+		  		  	Joueur joueur1 = new Joueur (nom);
 		  		  	
 		  		  	System.out.println("Vous entrez maintenant dans le Donjon! \n"
 		  		  			+ "Que la chance vous sourie aventurier....");
+		  		  	
+		  		  	joueur1.setPiece(piece1);
 
 		    break;
 		    case 2:

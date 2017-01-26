@@ -6,11 +6,19 @@ public class Piece {
 	private Position pos ;
 	private ArrayList<Joueur> listJoueur = new ArrayList<Joueur>(); 
 	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();
-	public Piece(Position pos, ArrayList<Monstre> monstre) {
+	private int id; 
+	public Piece(Position pos, int id,ArrayList<Monstre> monstre) {
 		super();
+		this.id = id; 
 		this.pos = pos;
 		Monstre = monstre;
 	}
+	public Piece(Position pos , int id ){
+		super();
+		this.id = id;
+		this.pos = pos;
+	}
+	
 	public Position getPos() {
 		return pos;
 	}

@@ -1,43 +1,22 @@
 package Class;
 
-public class Joueur {
-	private int vie;
-	private String nom ; 
+public class Joueur extends Vivant{
 	private Position lastpos;
 	
-	public Joueur( String nom){
-		this.nom= nom; 
-		this.lastpos = new Position(1,1);
-		this.vie = 10; 
+	public Joueur(String Nom) {
+		super(Nom,10);
+		// TODO Auto-generated constructor stub
+		this.lastpos = lastpos; 
 	}
 
-	public int getVie() {
-		return vie;
-	}
-
-	public void setVie(int vie) {
-		this.vie = vie;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Position lastPos() {
+	public Position getLastpos() {
 		return lastpos;
 	}
 
-	public void lastPos(Position pos) {
-		this.lastpos = pos;
+	public void setLastpos(Position lastpos) {
+		this.lastpos = lastpos;
 	}
-	
-	public void seDeplacer(String direction){
-		
-	}
+
 	
 }
 

@@ -5,7 +5,7 @@ public class Joueur extends Vivant{
 	
 	public Joueur(String Nom) {
 		super(Nom,10);
-		// TODO Auto-generated constructor stub
+
 		this.lastpos = lastpos; 
 	}
 
@@ -16,7 +16,5 @@ public class Joueur extends Vivant{
 	public void setLastpos(Position lastpos) {
 		this.lastpos = lastpos;
 	}
-
-	
 }
 

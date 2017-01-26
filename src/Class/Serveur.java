@@ -39,7 +39,10 @@ public class Serveur {
 		    	
 		      	Joueur joueur1 = creationPerso();			      	
 		      	Labyrinthe labyrinthe1 = CreationLabyrinthe();
-		      	joueur1.setPiece(labyrinthe1.Donjon.get(0));		      		 
+		      	joueur1.setPiece(labyrinthe1.Donjon.get(0));
+		      	
+		      	
+		      	
 		  }
 		  
 	//	  else {

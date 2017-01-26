@@ -16,5 +16,10 @@ public class Joueur extends Vivant{
 	public void setLastpos(Position lastpos) {
 		this.lastpos = lastpos;
 	}
+	
+	public void seDeplacer(String dest){
+		Piece pieceActuelle = this.getPiece();
+		
+	}
 }
 

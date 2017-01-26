@@ -6,7 +6,7 @@ public class Labyrinthe {
 	private ArrayList<Piece> Donjon = new ArrayList<Piece>(); 
 	
 	void CreationLabyrinthe(){
-		Position p1 =new Position (3,1);
+		Position p1 =new Position (3,0);
 		Piece piece1= new Piece(p1,0);
 		Donjon.add(piece1);
 		
@@ -15,8 +15,6 @@ public class Labyrinthe {
 		Donjon.add(piece2);
 		
 		Porte p1_2 = new Porte(piece1,piece2);
-		
-		
 		
 	}
 

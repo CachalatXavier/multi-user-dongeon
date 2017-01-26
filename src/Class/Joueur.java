@@ -3,11 +3,11 @@ package Class;
 public class Joueur {
 	private int vie;
 	private String nom ; 
-	private Position pos;
+	private Position lastpos;
 	
 	public Joueur( String nom){
 		this.nom= nom; 
-		this.pos = new Position(1,1);
+		this.lastpos = new Position(1,1);
 		this.vie = 10; 
 	}
 
@@ -27,12 +27,16 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public Position getPos() {
-		return pos;
+	public Position lastPos() {
+		return lastpos;
 	}
 
-	public void setPos(Position pos) {
-		this.pos = pos;
+	public void lastPos(Position pos) {
+		this.lastpos = pos;
+	}
+	
+	public void seDeplacer(String direction){
+		
 	}
 	
 }

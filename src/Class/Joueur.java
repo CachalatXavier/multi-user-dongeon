@@ -21,19 +21,19 @@ public class Joueur extends Vivant{
 		Position pos = new Position(pieceActuelle.getPos().getX(),pieceActuelle.getPos().getY());
 		if (dest == 'N'){
 			pos.setY(pos.getY()-1);
-			System.out.println("vous aller au Nord");
+			System.out.println("vous allez au Nord");
 		}
 		if (dest == 'S'){
 			pos.setY(pos.getY()+1);
-			System.out.println("vous aller au Sud");
+			System.out.println("vous allez au Sud");
 		}
 		if (dest == 'E'){
 			pos.setX(pos.getX()+1);
-			System.out.println("vous aller à l'est");
+			System.out.println("vous allez à l'est");
 		}
 		if (dest == 'O'){
 			pos.setX(pos.getX()-1);
-			System.out.println("vous aller à l'ouest");
+			System.out.println("vous allez à l'ouest");
 		}
 		pieceActuelle.setPos(pos);
 		

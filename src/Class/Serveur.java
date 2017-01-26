@@ -75,6 +75,8 @@ public class Serveur {
 		labyrinthe1.Donjon.add(piece2);
 		
 		Porte p1_2 = new Porte(piece1,piece2);
+		labyrinthe1.SearchPorte.add(p1_2);
+		
 		return labyrinthe1;
 	}
 	

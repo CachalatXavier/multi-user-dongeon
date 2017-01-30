@@ -13,7 +13,7 @@ public class client {
 		// TODO Auto-generated method stub
 		
 		try {
-			LocateRegistry.createRegistry(1099);
+
 			interfaceObjetSeDeplacer j= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
 			test(j);
 		

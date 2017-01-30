@@ -3,23 +3,24 @@ package Class;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class Vivant extends UnicastRemoteObject implements interfaceObjetSeDeplacer {
+public class Vivant {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	protected String nom ;
 	protected Piece piece; 
 	private int pdv ;
 	
-	public Vivant()throws RemoteException {
 
+	public Vivant() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public Vivant(String nom, int pdv) throws RemoteException {
 		this.nom = nom;
 		this.pdv=pdv; 
 	}
+
 
 	public String getNom() {
 		return nom;
@@ -45,18 +46,6 @@ public class Vivant extends UnicastRemoteObject implements interfaceObjetSeDepla
 		this.pdv = pdv;
 	}
 
-	@Override
-	public void seDeplacer(char dest) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Joueur creationPerso() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	} 
-	
 	
 }
 

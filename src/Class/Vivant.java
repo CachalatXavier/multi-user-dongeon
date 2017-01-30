@@ -4,14 +4,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Vivant {
-	/**
-	 * 
-	 */
+
 	private String nom ;
 	private Piece piece; 
 	private int pdv ;
 	
-
 	public Vivant() {
 		// TODO Auto-generated constructor stub
 	}

@@ -7,10 +7,11 @@ import java.util.Scanner;
 public class Joueur extends Vivant {
 	private Piece piece;
 
-	
+	public Joueur(){
+		
+	}
 	public Joueur(String Nom) throws RemoteException {
 		super(Nom,10);
-
 		this.piece = piece; 
 	}
 
@@ -43,7 +44,7 @@ public class Joueur extends Vivant {
 		pieceActuelle.setPos(pos);
 		
 	}
-	public Joueur creationPerso(){
+	public Joueur creationPersoJoueur() {
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
 		Scanner perso = new Scanner(System.in);
@@ -52,13 +53,8 @@ public class Joueur extends Vivant {
 		  	
 		  	System.out.println("Vous entrez maintenant dans le Donjon! \n"
 		  			+ "Que la chance vous sourie aventurier....");
-		  	Joueur joueur1 = null;
-			try {
-				joueur1 = new Joueur(nom);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		  	Joueur joueur1 = new Joueur();
+			joueur1.setNom(nom);
 		  	return joueur1;
 	}
 }

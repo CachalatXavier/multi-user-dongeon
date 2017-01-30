@@ -22,7 +22,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			Naming.bind("serveurseDeplacer", obj);
 			System.out.println("server seDeplacer déclarer");
 			
-			/*
+			
 		   	Labyrinthe labyrinthe1 = new Labyrinthe();
 		   	Labyrinthe.CreationLabyrinthe();
 	      	// joueur1.setPiece(labyrinthe1.Donjon.get(0));	*/  
@@ -35,16 +35,5 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public Joueur creationPerso() throws RemoteException {
-		// TODO Auto-generated method stub
-		System.out.println("teste");
-		return null;
-	}
-	
-	
-	
-	
 	
 }

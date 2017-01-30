@@ -13,9 +13,12 @@ public class client {
 		// TODO Auto-generated method stub
 		
 		try {
-
-			interfaceObjetSeDeplacer j= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
-			test(j);
+			
+			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
+			Menu M = new Menu();
+			Joueur J = new Joueur();
+			J = M.Menu1();
+			System.out.println(J.getNom());
 		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -30,47 +33,5 @@ public class client {
 		
 		
 	}
-	public static void test(interfaceObjetSeDeplacer j) throws RemoteException { System.out.println("               *                  ");
-	  System.out.println("              ***                 ");
-	  System.out.println("            *******               ");
-	  System.out.println("          ***********             ");
-	  System.out.println("        ***************           ");
-	  System.out.println("      *******************         ");
-	  System.out.println("    ***********************       ");
-	  System.out.println("  ***************************     ");
-	  System.out.println("  ***************************     ");
-	  System.out.println("  ****                   ****     ");
-	  System.out.println("  **** Dungeon et Dragon ****     ");
-	  System.out.println("  ****                   ****     ");
-	  System.out.println("  ***************************     ");
-	  System.out.println("    ***********************       ");
-	  System.out.println("      *******************         ");
-	  System.out.println("        ***************           ");
-	  System.out.println("          ***********             ");
-	  System.out.println("            *******               ");
-	  System.out.println("              ***                 ");
-	  System.out.println("               *                  ");
-	  System.out.println("                                  ");
-	  System.out.println("                                  ");
-	  
-	  System.out.println("Bonjour que voulez faire ?\n"
-	  		+ "1) Créer un Personnage \n"
-	  		+ "2) Quitter \n");
-	  Scanner menu = new Scanner(System.in);
-	  int i = menu.nextInt();
-	  
-	  if (i == 1){
-		 
-		  	 j.creationPerso();			      	
-	     		      		 
-	  }
-	  
-//	  else {
-		      //Quitter le programme			  
-	    
-	      /*Action*/;
-	//  }
 	
-		
-	}
 }

@@ -7,13 +7,19 @@ import java.rmi.server.UnicastRemoteObject;
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer {
 
 
+	public Serveur() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) throws Exception {
 
 	
 			LocateRegistry.createRegistry(1099);
-			
-			Vivant j = new Vivant();
-			Naming.bind("serveurseDeplacer", j);
+			Serveur obj = new Serveur();
+			Naming.bind("serveurseDeplacer", obj);
 			System.out.println("server seDeplacer déclarer");
 			
 			/*

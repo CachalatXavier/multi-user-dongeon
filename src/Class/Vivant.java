@@ -7,8 +7,8 @@ public class Vivant {
 	/**
 	 * 
 	 */
-	protected String nom ;
-	protected Piece piece; 
+	private String nom ;
+	private Piece piece; 
 	private int pdv ;
 	
 

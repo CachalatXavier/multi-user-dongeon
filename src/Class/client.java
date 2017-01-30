@@ -60,7 +60,8 @@ public class client {
 	  int i = menu.nextInt();
 	  
 	  if (i == 1){
-		  	Joueur joueur1=j.creationPerso();			      	
+		 
+		  	 j.creationPerso();			      	
 	     		      		 
 	  }
 	  

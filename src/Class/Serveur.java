@@ -39,6 +39,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	@Override
 	public Joueur creationPerso() throws RemoteException {
 		// TODO Auto-generated method stub
+		System.out.println("teste");
 		return null;
 	}
 	

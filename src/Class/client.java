@@ -15,8 +15,8 @@ public class client {
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
 			Menu M = new Menu();
 			Joueur J = new Joueur();
-			J = M.Menu1( J);
-		
+			J = M.Menu1(J);
+						
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

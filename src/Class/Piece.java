@@ -19,6 +19,12 @@ public class Piece {
 		this.pos = pos;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Position getPos() {
 		return pos;
 	}

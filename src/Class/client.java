@@ -16,7 +16,11 @@ public class client {
 			Menu M = new Menu();
 			Joueur J = new Joueur();
 			J = M.Menu1(J);
-						
+			
+			// teste
+			I.porteDispo(J.getPiece().getPos());
+			
+			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

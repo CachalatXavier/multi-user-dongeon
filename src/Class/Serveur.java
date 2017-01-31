@@ -38,7 +38,8 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	}
 	// à completer 
 	public ArrayList<String> porteDispo(Position pos){
-		ArrayList<String> liste = new ArrayList();
+		ArrayList<String> liste = new ArrayList<String>();
+		System.out.println("petit test rmi");
 		return liste;
 	}
 }

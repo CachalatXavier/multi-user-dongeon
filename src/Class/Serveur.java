@@ -3,6 +3,7 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer {
 
@@ -35,5 +36,9 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		// TODO Auto-generated method stub
 		
 	}
-	
+	// à completer 
+	public ArrayList<String> porteDispo(Position pos){
+		ArrayList<String> liste = new ArrayList();
+		return liste;
+	}
 }

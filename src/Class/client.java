@@ -4,8 +4,6 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.util.Scanner;
 
 public class client {
 
@@ -17,8 +15,7 @@ public class client {
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
 			Menu M = new Menu();
 			Joueur J = new Joueur();
-			J = M.Menu1();
-			System.out.println(J.getNom());
+			J = M.Menu1( J);
 		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

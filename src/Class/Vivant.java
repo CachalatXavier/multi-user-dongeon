@@ -1,8 +1,5 @@
 package Class;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
-
 public class Vivant {
 
 	private String nom ;
@@ -13,7 +10,7 @@ public class Vivant {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Vivant(String nom, int pdv) throws RemoteException {
+	public Vivant(String nom, int pdv) {
 		this.nom = nom;
 		this.pdv=pdv; 
 	}

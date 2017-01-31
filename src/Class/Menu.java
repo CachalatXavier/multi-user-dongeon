@@ -1,6 +1,5 @@
 package Class;
 
-import java.rmi.RemoteException;
 import java.util.Scanner;
 
 public class Menu {
@@ -9,7 +8,7 @@ public class Menu {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Joueur Menu1() {
+	public Joueur Menu1(Joueur J) {
 	  System.out.println("               *                  ");
 	  System.out.println("              ***                 ");
 	  System.out.println("            *******               ");
@@ -40,9 +39,8 @@ public class Menu {
 	  int i = menu.nextInt();
 	  
 	  if (i == 1){
-		  	Joueur J = new Joueur();
-		  	 J.creationPersoJoueur();
-		  	System.out.println(J.getNom());
+		  	Joueur joueur = new Joueur();
+		  	 J = joueur.creationPersoJoueur();
 	     	 return J;      		 
 	  }
 	  

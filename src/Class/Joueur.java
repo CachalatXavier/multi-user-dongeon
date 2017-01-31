@@ -1,7 +1,5 @@
 package Class;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 public class Joueur extends Vivant {
@@ -10,7 +8,7 @@ public class Joueur extends Vivant {
 	public Joueur(){
 		
 	}
-	public Joueur(String Nom) throws RemoteException {
+	public Joueur(String Nom)  {
 		super(Nom,10);
 		this.piece = piece; 
 	}
@@ -55,6 +53,9 @@ public class Joueur extends Vivant {
 		  			+ "Que la chance vous sourie aventurier....");
 		  	Joueur joueur1 = new Joueur();
 			joueur1.setNom(nom);
+			Position pos1 = new Position(3,1);
+			Piece Piece1 = new Piece(pos1,1);
+			joueur1.setPiece(Piece1);
 		  	return joueur1;
 	}
 }

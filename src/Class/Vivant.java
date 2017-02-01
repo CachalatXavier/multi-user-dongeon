@@ -1,6 +1,8 @@
 package Class;
 
-public class Vivant {
+import java.io.Serializable;
+
+public class Vivant implements Serializable{
 
 	private String nom ;
 	private Piece piece; 

@@ -66,7 +66,9 @@ public class Joueur extends Vivant {
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction ){
 		j.LastPosition=j.getPiece().getPos();
+		j.getPiece().delJoueur(j, getPiece());//Supression du joueur de l'array joueur de l'ancienne piece
 		j.seDeplacer(direction);
+		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j;
 	}
 }

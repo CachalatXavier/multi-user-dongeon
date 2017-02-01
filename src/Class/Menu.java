@@ -65,7 +65,9 @@ public class Menu {
 		 }
 		 if (i == "O"){
 			 System.out.println("vous pouvez aller a l'Ouest" );
+			 
 		 }
+		 System.out.println("Aventurier, dans quelle direction voulez vous aller?  " +direction);
 	}
 	
 	

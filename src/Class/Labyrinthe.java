@@ -63,7 +63,7 @@ public class Labyrinthe {
 		Porte p2_3 = new Porte(piece2,"E",piece3,"O");
 		//Ajout Porte
 		piece3 =piece3.ajoutPorte(piece3, p2_3);
-		piece3 =piece3.ajoutPorte(piece2, p2_3);
+		piece2 =piece2.ajoutPorte(piece2, p2_3);
 		
 		
 		//Creation piece 5
@@ -74,7 +74,7 @@ public class Labyrinthe {
 		Porte p2_5 = new Porte(piece2,"E",piece5,"O");
 		//Ajout Porte
 		piece5 =piece5.ajoutPorte(piece5, p2_5);
-		piece5 =piece5.ajoutPorte(piece2, p2_5);
+		piece2 =piece2.ajoutPorte(piece2, p2_5);
 		
 	   
 		

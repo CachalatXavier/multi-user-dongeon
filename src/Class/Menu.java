@@ -49,26 +49,31 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<String> direction){
+	public void Menu2(ArrayList<String> direction, Joueur J){
 		 System.out.println("                                  ");
 		 System.out.println("vous pouvez aller au " + direction );
-		 Scanner menu = new Scanner(System.in);
-		 String i = menu.toString();
-		 if (i == "S"){
+		 Scanner sc = new Scanner(System.in);
+		 String str = sc.nextLine();
+		 char choixdirection =str.charAt(0);
+		 if (choixdirection == 'S'){
 			 System.out.println("vous pouvez aller au Sud" );
 		 }
-		 if (i == "N"){
+		 if (choixdirection == 'N'){
 			 System.out.println("vous pouvez aller au Nord" );
 		 }
-		 if (i == "E"){
+		 if (choixdirection == 'E'){
 			 System.out.println("vous pouvez aller a l'Est" );
 		 }
-		 if (i == "O"){
+		 if (choixdirection == 'O'){
 			 System.out.println("vous pouvez aller a l'Ouest" );
 			 
 		 }
 		 System.out.println("Aventurier, dans quelle direction voulez vous aller?  " +direction);
+		 
+		 J.MAJjoueurPos(J, choixdirection);
+		 
 	}
+		
 	
 	
 }

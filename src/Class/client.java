@@ -23,12 +23,8 @@ public class client {
 			int i;
 			while (1>0){
 			direction = I.porteDispo(J.getPiece());
-			 M.Menu2(direction); // direction possible en parametre
+			 M.Menu2(direction , J ); // direction possible en parametre
 			 
-			 Scanner sc = new Scanner(System.in);
-			 String str = sc.nextLine();
-			 char choixdirection =str.charAt(0);
-			 J.MAJjoueurPos(J, choixdirection);
 			}
 		
 			

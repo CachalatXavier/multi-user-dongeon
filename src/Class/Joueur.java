@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Joueur extends Vivant {
 	private Piece piece;
-	private Position LastPosition ; 
+	private Piece LastPosition ; 
 	public Joueur(){
 		
 	}
@@ -13,10 +13,10 @@ public class Joueur extends Vivant {
 		this.piece = piece; 
 	}
 
-	public Position getLastPosition() {
+	public Piece getLastPosition() {
 		return LastPosition;
 	}
-	public void setLastPosition(Position lastPosition) {
+	public void setLastPosition(Piece lastPosition) {
 		LastPosition = lastPosition;
 	}
 	public Piece getPiece() {
@@ -65,7 +65,7 @@ public class Joueur extends Vivant {
 		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction ){
-		j.LastPosition=j.getPiece().getPos();
+		j.LastPosition=j.getPiece();
 		j.getPiece().delJoueur(j, getPiece());//Supression du joueur de l'array joueur de l'ancienne piece
 		j.seDeplacer(direction);
 		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece

@@ -47,6 +47,7 @@ public class Labyrinthe {
 		
 		Position p2 =new Position (3,1);
 		Piece piece2= new Piece(p2,1);
+		
 		Porte p1_2 = new Porte(piece1,"S",piece2,"N");
 	    piece1 =piece1.ajoutPorte(piece1, p1_2);
 		piece2 =piece1.ajoutPorte(piece2, p1_2);

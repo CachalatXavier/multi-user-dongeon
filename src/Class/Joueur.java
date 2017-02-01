@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Joueur extends Vivant {
 	private Piece piece;
-
+	private Position LastPosition ; 
 	public Joueur(){
 		
 	}
@@ -13,6 +13,12 @@ public class Joueur extends Vivant {
 		this.piece = piece; 
 	}
 
+	public Position getLastPosition() {
+		return LastPosition;
+	}
+	public void setLastPosition(Position lastPosition) {
+		LastPosition = lastPosition;
+	}
 	public Piece getPiece() {
 		return piece;
 	}
@@ -57,6 +63,11 @@ public class Joueur extends Vivant {
 			Piece Piece1 = new Piece(pos1,0);
 			joueur1.setPiece(Piece1);
 		  	return joueur1;
+	}
+	public Joueur MAJjoueurPos(Joueur j , char direction ){
+		j.LastPosition=j.getPiece().getPos();
+		j.seDeplacer(direction);
+		return j;
 	}
 }
 

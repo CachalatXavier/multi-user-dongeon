@@ -58,4 +58,13 @@ public class Piece implements Serializable{
 		piece.setPorte(liste);
 		return piece ; 
 	}
+	
+	public void delJoueur(Joueur joueur, Piece piece){
+		piece.listJoueur.remove(joueur);
+	}
+	
+	public void addJoueur(Joueur joueur, Piece piece) {
+		piece.listJoueur.add(joueur);
+	}
+	
 }

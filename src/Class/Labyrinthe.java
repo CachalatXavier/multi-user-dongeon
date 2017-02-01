@@ -43,7 +43,7 @@ public class Labyrinthe {
 		
 		
 		Position p1 =new Position (3,0);
-		Piece piece1= new Piece(p1,1);
+		Piece piece1= new Piece(p1,0);
 		
 		Position p2 =new Position (3,1);
 		Piece piece2= new Piece(p2,1);

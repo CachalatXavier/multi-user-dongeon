@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class client {
 
@@ -16,9 +17,11 @@ public class client {
 			Menu M = new Menu();
 			Joueur J = new Joueur();
 			J = M.Menu1(J);
+			 
 			
-			// teste
-			M.Menu2(I.porteDispo(J.getPiece()));
+			ArrayList<String> direction = new ArrayList<String>();
+			 direction = I.porteDispo(J.getPiece());
+			 M.Menu2(direction); // direction possible en parametre
 			
 			
 		} catch (RemoteException e) {

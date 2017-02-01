@@ -52,8 +52,20 @@ public class Menu {
 	public void Menu2(ArrayList<String> direction){
 		 System.out.println("                                  ");
 		 System.out.println("vous pouvez aller au " + direction );
-		 
-		 
+		 Scanner menu = new Scanner(System.in);
+		 String i = menu.toString();
+		 if (i == "S"){
+			 System.out.println("vous pouvez aller au Sud" );
+		 }
+		 if (i == "N"){
+			 System.out.println("vous pouvez aller au Nord" );
+		 }
+		 if (i == "E"){
+			 System.out.println("vous pouvez aller a l'Est" );
+		 }
+		 if (i == "O"){
+			 System.out.println("vous pouvez aller a l'Ouest" );
+		 }
 	}
 	
 	

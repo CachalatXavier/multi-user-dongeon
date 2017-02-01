@@ -43,9 +43,8 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		ArrayList<Porte> liste = new ArrayList<Porte>();
 		System.out.println("petit test rmi");
 		liste = labyrinthe1.getSearchPorte(); // Arryliste des porte dans la piece 
-		//System.out.println(liste.size());
+		
 		for (i = 0 ;  i < liste.size();i++){
-			 System.out.println(liste.get(i).getPiece1().getId());
 			if (liste.get(i).getPiece1().getId()==piece.getId()){ // erreur cette ligne
 				System.out.println("check2");
 				if (liste.get(i).getPos1()=="N"){
@@ -78,7 +77,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			
 		}
 	}
-		System.out.println(renvoie);		
+		System.out.println(renvoie);
 		return renvoie;
 	}
 }

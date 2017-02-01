@@ -54,7 +54,7 @@ public class Joueur extends Vivant {
 		  	Joueur joueur1 = new Joueur();
 			joueur1.setNom(nom);
 			Position pos1 = new Position(3,0);
-			Piece Piece1 = new Piece(pos1,1);
+			Piece Piece1 = new Piece(pos1,0);
 			joueur1.setPiece(Piece1);
 		  	return joueur1;
 	}

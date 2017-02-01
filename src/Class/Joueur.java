@@ -53,7 +53,7 @@ public class Joueur extends Vivant {
 		  			+ "Que la chance vous sourie aventurier....");
 		  	Joueur joueur1 = new Joueur();
 			joueur1.setNom(nom);
-			Position pos1 = new Position(3,1);
+			Position pos1 = new Position(3,0);
 			Piece Piece1 = new Piece(pos1,1);
 			joueur1.setPiece(Piece1);
 		  	return joueur1;

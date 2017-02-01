@@ -6,6 +6,7 @@ public class Piece {
 	private Position pos ;
 	private ArrayList<Joueur> listJoueur = new ArrayList<Joueur>(); 
 	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();
+	private ArrayList<Porte> Porte = new ArrayList<Porte>();
 	private int id; 
 	public Piece(Position pos, int id,ArrayList<Monstre> monstre) {
 		super();
@@ -19,6 +20,7 @@ public class Piece {
 		this.pos = pos;
 	}
 	
+
 	public int getId() {
 		return id;
 	}
@@ -42,6 +44,17 @@ public class Piece {
 	}
 	public void setMonstre(ArrayList<Monstre> monstre) {
 		Monstre = monstre;
+	}
+	public ArrayList<Porte> getPorte() {
+		return Porte;
+	}
+	public void setPorte(ArrayList<Porte> porte) {
+		Porte = porte;
 	} 
-	
+	public Piece ajoutPorte(Piece piece,Porte p){
+		ArrayList<Porte> liste = new ArrayList<Porte>();
+		liste = piece.getPorte();
+		piece.setPorte(liste);
+		return piece ; 
+	}
 }

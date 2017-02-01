@@ -46,7 +46,8 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		
 		for (i = 0 ;  i < liste.size();i++){
 			if (liste.get(i).getPiece1().getId()==piece.getId()){ // erreur cette ligne
-				System.out.println("check2");
+				
+				System.out.println("nombre tour" + i);
 				if (liste.get(i).getPos1()=="N"){
 					renvoie.add("N");
 				}

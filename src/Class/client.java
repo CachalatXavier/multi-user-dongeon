@@ -20,10 +20,12 @@ public class client {
 			J = M.Menu1(J);
 			 
 			ArrayList<String> direction = new ArrayList<String>();
-			int i;
+
 			while (1>0){
+			System.out.println(J.getPiece().getPos().getX());
+			System.out.println(J.getPiece().getPos().getY());
 			direction = I.porteDispo(J.getPiece());
-			 M.Menu2(direction , J ); // direction possible en parametre
+			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
 			 
 			}
 		

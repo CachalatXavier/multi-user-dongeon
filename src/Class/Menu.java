@@ -40,8 +40,8 @@ public class Menu {
 	  int i = menu.nextInt();
 	  
 	  if (i == 1){
-		  	Joueur joueur = new Joueur();
-		  	 J = joueur.creationPersoJoueur();
+		  	
+		  	 J =J.creationPersoJoueur(J);
 	     	 return J;      		 
 	  }
 	  

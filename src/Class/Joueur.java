@@ -48,7 +48,7 @@ public class Joueur extends Vivant {
 		pieceActuelle.setPos(pos);
 		
 	}
-	public Joueur creationPersoJoueur() {
+	public Joueur creationPersoJoueur(Joueur J) {
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
 		Scanner perso = new Scanner(System.in);
@@ -57,12 +57,12 @@ public class Joueur extends Vivant {
 		  	
 		  	System.out.println("Vous entrez maintenant dans le Donjon! \n"
 		  			+ "Que la chance vous sourie aventurier....");
-		  	Joueur joueur1 = new Joueur();
-			joueur1.setNom(nom);
+		
+			J.setNom(nom);
 			Position pos1 = new Position(3,0);
 			Piece Piece1 = new Piece(pos1,1);
-			joueur1.setPiece(Piece1);
-		  	return joueur1;
+			J.setPiece(Piece1);
+		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction ){
 		j.LastPosition=j.getPiece().getPos();

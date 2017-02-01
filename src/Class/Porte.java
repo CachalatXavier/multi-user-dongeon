@@ -4,8 +4,8 @@ public class Porte {
 	
 	private Piece piece1;
 	private Piece piece2; 
-	private String pos1;
-	private String pos2;
+	private String pos1; // postion N,S,E,O dans la piece 1
+	private String pos2; // postion N,S,E,O dans la piece 2
 	public Porte(){
 	}
 	

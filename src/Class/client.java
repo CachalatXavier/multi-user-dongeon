@@ -18,7 +18,7 @@ public class client {
 			J = M.Menu1(J);
 			
 			// teste
-			I.porteDispo(J.getPiece());
+			M.Menu2(I.porteDispo(J.getPiece()));
 			
 			
 		} catch (RemoteException e) {

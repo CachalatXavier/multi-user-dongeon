@@ -1,5 +1,6 @@
 package Class;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -47,6 +48,12 @@ public class Menu {
 	  else {
 		      return null; 
 	  }		
+	}
+	public void Menu2(ArrayList<String> direction){
+		 System.out.println("                                  ");
+		 System.out.println("vous pouvez aller au " + direction );
+		 
+		 
 	}
 	
 	

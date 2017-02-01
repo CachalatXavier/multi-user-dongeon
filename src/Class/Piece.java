@@ -1,8 +1,9 @@
 package Class;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Piece {
+public class Piece implements Serializable{
 	private Position pos ;
 	private ArrayList<Joueur> listJoueur = new ArrayList<Joueur>(); 
 	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();

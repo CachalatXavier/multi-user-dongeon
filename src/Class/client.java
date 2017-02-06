@@ -19,12 +19,15 @@ public class client {
 			Joueur J = new Joueur();
 			J = M.Menu1(J);
 			 
-			ArrayList<String> direction = new ArrayList<String>();
+			
 
 			while (1>0){
-			System.out.println(J.getPiece().getPos().getX());
-			System.out.println(J.getPiece().getPos().getY());
+				ArrayList<Porte> direction = new ArrayList<Porte>();
+			//System.out.println(J.getPiece().getPos().getX());
+			//System.out.println(J.getPiece().getPos().getY());
+			//System.out.println(J.getPiece().getId());
 			direction = I.porteDispo(J.getPiece());
+			//System.out.println(direction);
 			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
 			 
 			}

@@ -31,19 +31,19 @@ public class Joueur extends Vivant {
 		Position pos = new Position(pieceActuelle.getPos().getX(),pieceActuelle.getPos().getY());
 		if (dest == 'N'){
 			pos.setY(pos.getY()-1);
-			System.out.println("vous allez au Nord");
+			//System.out.println("vous allez au Nord");
 		}
 		if (dest == 'S'){
 			pos.setY(pos.getY()+1);
-			System.out.println("vous allez au Sud");
+			//System.out.println("vous allez au Sud");
 		}
 		if (dest == 'E'){
 			pos.setX(pos.getX()+1);
-			System.out.println("vous allez à l'est");
+			//System.out.println("vous allez à l'est");
 		}
 		if (dest == 'O'){
 			pos.setX(pos.getX()-1);
-			System.out.println("vous allez à l'ouest");
+			//System.out.println("vous allez à l'ouest");
 		}
 		pieceActuelle.setPos(pos);
 		
@@ -64,9 +64,10 @@ public class Joueur extends Vivant {
 			J.setPiece(Piece1);
 		  	return J;
 	}
-	public Joueur MAJjoueurPos(Joueur j , char direction ){
+	public Joueur MAJjoueurPos(Joueur j , char direction , int ID ){
 		j.LastPosition=j.getPiece();
-		j.getPiece().delJoueur(j, getPiece());//Supression du joueur de l'array joueur de l'ancienne piece
+		j.getPiece().delJoueur(j, getPiece());//Suppression du joueur de l'array joueur de l'ancienne piece
+		j.getPiece().setId(ID);
 		j.seDeplacer(direction);
 		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j;

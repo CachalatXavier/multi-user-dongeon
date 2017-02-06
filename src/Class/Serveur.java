@@ -36,49 +36,14 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		// TODO Auto-generated method stub
 		
 	}
-	// à completer 
-	public ArrayList<String> porteDispo(Piece piece){
-		int i =0; 
-		ArrayList<String> renvoie = new ArrayList<String>();
+	 
+	public ArrayList<Porte> porteDispo(Piece piece){
+		//int i =0; 
+		//ArrayList<String> renvoie = new ArrayList<String>();
 		ArrayList<Porte> liste = new ArrayList<Porte>();
-		System.out.println("petit test rmi");
+		// System.out.println("petit test rmi");
 		liste = labyrinthe1.getSearchPorte(); // Arryliste des porte dans la piece 
 		
-		for (i = 0 ;  i < liste.size();i++){
-			if (liste.get(i).getPiece1().getId()==piece.getId()){ // erreur cette ligne
-				
-				System.out.println("nombre tour" + i);
-				if (liste.get(i).getPos1()=="N"){
-					renvoie.add("N");
-				}
-				if (liste.get(i).getPos1()=="S"){
-					renvoie.add("S");
-					
-				}
-				if (liste.get(i).getPos1()=="O"){
-					renvoie.add("O");
-				}
-				if (liste.get(i).getPos1()=="E"){
-					renvoie.add("E");
-				}
-			}
-			if (liste.get(i).getPiece2().getPos()==piece.getPos()){
-				if (liste.get(i).getPos2()=="N"){
-					renvoie.add("N");
-				}
-				if (liste.get(i).getPos2()=="S"){
-					renvoie.add("S");
-				}
-				if (liste.get(i).getPos2()=="O"){
-					renvoie.add("O");
-				}
-				if (liste.get(i).getPos2()=="E"){
-					renvoie.add("E");
-				}
-			
-		}
-	}
-		System.out.println(renvoie);
-		return renvoie;
+		return liste;
 	}
 }

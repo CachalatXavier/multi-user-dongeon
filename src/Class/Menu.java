@@ -1,6 +1,7 @@
 package Class;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -49,31 +50,98 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<String> direction, Joueur J){
+	public void Menu2(ArrayList<Porte> direction, Joueur J){
+		 int i ; 
+		 ArrayList<String> renvoiedirection = new ArrayList<String>();
+		 List<Integer> renvoieID = new ArrayList<Integer>();
+		
+		for (i = 0 ;  i < direction.size();i++){
+			if (direction.get(i).getPiece1().getId()==J.getPiece().getId()){
+				
+				
+				if (direction.get(i).getPos1()=='N'){
+					renvoiedirection.add("N");
+					renvoieID.add(direction.get(i).getPiece2().getId());
+					System.out.println("check N");
+				}
+					
+				if (direction.get(i).getPos1()=='S'){
+					renvoiedirection.add("S");
+					renvoieID.add(direction.get(i).getPiece2().getId());
+					System.out.println("check S");
+				}
+				if (direction.get(i).getPos1()=='O'){
+					renvoiedirection.add("O");
+					renvoieID.add(direction.get(i).getPiece2().getId());
+					System.out.println("check O");
+				}
+				if (direction.get(i).getPos1()=='E'){
+					renvoiedirection.add("E");
+					renvoieID.add(direction.get(i).getPiece2().getId());
+					System.out.println("check E");
+				}
+			}
+			if (direction.get(i).getPiece2().getId()==J.getPiece().getId()){
+				if (direction.get(i).getPos2()=='N'){
+					renvoiedirection.add("N");
+					renvoieID.add(direction.get(i).getPiece1().getId());
+					System.out.println(direction.get(i).getPiece1().getId());
+				}
+				if (direction.get(i).getPos2()=='S'){
+					renvoiedirection.add("S");
+					renvoieID.add(direction.get(i).getPiece1().getId());
+					System.out.println("check S");
+				}
+				if (direction.get(i).getPos2()=='O'){
+					renvoiedirection.add("O");
+					renvoieID.add(direction.get(i).getPiece1().getId());
+					System.out.println("check O");
+				}
+				if (direction.get(i).getPos2()=='E'){
+					renvoiedirection.add("E");
+					renvoieID.add(direction.get(i).getPiece1().getId());
+					System.out.println("check E");
+				}
+			}	
+		}
+		
 		 System.out.println("                                  ");
-		 System.out.println("vous pouvez aller au " + direction );
+		 System.out.println("vous pouvez aller au " + renvoiedirection );
+		 System.out.println("Aventurier, dans quelle direction voulez vous aller?  ");
+		 
+		 int ID ;
 		 Scanner sc = new Scanner(System.in);
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
 		 if (choixdirection == 'S'){
-			 System.out.println("vous pouvez aller au Sud" );
+			 System.out.println("vous aller au Sud" );
+			 ID = renvoiedirection.indexOf("S");
+			 ID = renvoieID.get(ID);
+			 J.MAJjoueurPos(J, choixdirection,ID);
 		 }
 		 if (choixdirection == 'N'){
-			 System.out.println("vous pouvez aller au Nord" );
+			 System.out.println("vous aller au Nord" );
+			 ID = renvoiedirection.indexOf("N");
+			 ID = renvoieID.get(ID);
+			 J.MAJjoueurPos(J, choixdirection,ID);
 		 }
 		 if (choixdirection == 'E'){
-			 System.out.println("vous pouvez aller a l'Est" );
+			 System.out.println("vous aller a l'Est" );
+			 ID = renvoiedirection.indexOf("E");
+			 ID = renvoieID.get(ID);
+			 J.MAJjoueurPos(J, choixdirection,ID);
 		 }
 		 if (choixdirection == 'O'){
-			 System.out.println("vous pouvez aller a l'Ouest" );
-			 
+			 System.out.println("vous aller a l'Ouest" );
+			 ID = renvoiedirection.indexOf("O");
+			 ID = renvoieID.get(ID);
+			 J.MAJjoueurPos(J, choixdirection,ID); 
 		 }
-		 System.out.println("Aventurier, dans quelle direction voulez vous aller?  " +direction);
 		 
-		 J.MAJjoueurPos(J, choixdirection);
 		 
 	}
 		
-	
-	
 }
+		
+	
+

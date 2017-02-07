@@ -1,11 +1,8 @@
 package Class;
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
 public class ServeurCombat extends UnicastRemoteObject implements interfaceObjetCombat {
 	Labyrinthe lab = new Labyrinthe();

@@ -62,45 +62,45 @@ public class Menu {
 				if (direction.get(i).getPos1()=='N'){
 					renvoiedirection.add("N");
 					renvoieID.add(direction.get(i).getPiece2().getId());
-					System.out.println("check N");
+				//	System.out.println("check N");
 				}
 					
 				if (direction.get(i).getPos1()=='S'){
 					renvoiedirection.add("S");
 					renvoieID.add(direction.get(i).getPiece2().getId());
-					System.out.println("check S");
+				//	System.out.println("check S");
 				}
 				if (direction.get(i).getPos1()=='O'){
 					renvoiedirection.add("O");
 					renvoieID.add(direction.get(i).getPiece2().getId());
-					System.out.println("check O");
+				//	System.out.println("check O");
 				}
 				if (direction.get(i).getPos1()=='E'){
 					renvoiedirection.add("E");
 					renvoieID.add(direction.get(i).getPiece2().getId());
-					System.out.println("check E");
+				//	System.out.println("check E");
 				}
 			}
 			if (direction.get(i).getPiece2().getId()==J.getPiece().getId()){
 				if (direction.get(i).getPos2()=='N'){
 					renvoiedirection.add("N");
 					renvoieID.add(direction.get(i).getPiece1().getId());
-					System.out.println(direction.get(i).getPiece1().getId());
+				//	System.out.println(direction.get(i).getPiece1().getId());
 				}
 				if (direction.get(i).getPos2()=='S'){
 					renvoiedirection.add("S");
 					renvoieID.add(direction.get(i).getPiece1().getId());
-					System.out.println("check S");
+				//	System.out.println("check S");
 				}
 				if (direction.get(i).getPos2()=='O'){
 					renvoiedirection.add("O");
 					renvoieID.add(direction.get(i).getPiece1().getId());
-					System.out.println("check O");
+				//	System.out.println("check O");
 				}
 				if (direction.get(i).getPos2()=='E'){
 					renvoiedirection.add("E");
 					renvoieID.add(direction.get(i).getPiece1().getId());
-					System.out.println("check E");
+			
 				}
 			}	
 		}

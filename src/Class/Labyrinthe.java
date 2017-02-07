@@ -71,7 +71,7 @@ public class Labyrinthe {
 		Piece piece5= new Piece(p5,5);
 		
 		//Creation porte piece2/piece5
-		Porte p2_5 = new Porte(piece2,'E',piece5,'O');
+		Porte p2_5 = new Porte(piece2,'O',piece5,'E');
 		//Ajout Porte
 		piece5 =piece5.ajoutPorte(piece5, p2_5);
 		piece2 =piece2.ajoutPorte(piece2, p2_5);
@@ -84,6 +84,8 @@ public class Labyrinthe {
 		labyrinthe1.Donjon.add(piece5);
 		//Porte p1_2 = new Porte(piece1,piece2);
 		labyrinthe1.SearchPorte.add(p1_2);
+		labyrinthe1.SearchPorte.add(p2_3);
+		labyrinthe1.SearchPorte.add(p2_5);
 		
 		return labyrinthe1;
 	}

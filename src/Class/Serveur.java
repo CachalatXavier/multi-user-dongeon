@@ -42,7 +42,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		//ArrayList<String> renvoie = new ArrayList<String>();
 		ArrayList<Porte> liste = new ArrayList<Porte>();
 		// System.out.println("petit test rmi");
-		liste = labyrinthe1.getSearchPorte(); // Arryliste des porte dans la piece 
+		liste.addAll(labyrinthe1.getSearchPorte()); // Arryliste des porte dans la piece 
 		
 		return liste;
 	}

@@ -6,9 +6,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class ServeurCombat extends UnicastRemoteObject implements interfaceObjetCombat {
+			
 	
-	public ServeurCombat() throws RemoteException {
+		public ServeurCombat() throws RemoteException {
 		super();
+		
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -21,6 +23,13 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		ServeurCombat obj = new ServeurCombat();
 		Naming.bind("ServeurDeCombat", obj);
 		System.out.println("Serveur de Combat déclarée");
+		
+		
+	}
+	
+	public void DetectionMonstre(Piece p){
+		I.GetLabyrinthe();
+		
 		
 		
 	}

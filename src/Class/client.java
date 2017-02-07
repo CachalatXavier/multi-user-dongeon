@@ -15,9 +15,12 @@ public class client {
 		try {
 			
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
+			interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 			Menu M = new Menu();
+			
 			Joueur J = new Joueur();
 			J = M.Menu1(J);
+			
 			 
 			
 
@@ -29,7 +32,7 @@ public class client {
 			direction = I.porteDispo(J.getPiece());
 			//System.out.println(direction);
 			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
-			 
+			 C.DetectionMonstre(J.getPiece());
 			}
 		
 			

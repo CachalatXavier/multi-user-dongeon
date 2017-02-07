@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 public interface interfaceObjetCombat extends Remote{
 
 	
-	public void DetectionMonstre(Piece p) throws RemoteException;
+	public int DetectionMonstre(Piece p) throws RemoteException;
 }

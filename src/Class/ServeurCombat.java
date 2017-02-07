@@ -27,9 +27,11 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		
 	}
 	
-	public void DetectionMonstre(Piece p) throws RemoteException {	
+	public int DetectionMonstre(Piece p) throws RemoteException {	
 		lab.recupererLabyrinthe();
-		
+		Piece salle = lab.Donjon.get(p.getId());
+		int i=salle.getMonstre().size();
+		return i;
 	}
 	
 

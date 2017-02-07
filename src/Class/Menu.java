@@ -85,7 +85,7 @@ public class Menu {
 				if (direction.get(i).getPos2()=='N'){
 					renvoiedirection.add("N");
 					renvoieID.add(direction.get(i).getPiece1().getId());
-				//	System.out.println(direction.get(i).getPiece1().getId());
+				
 				}
 				if (direction.get(i).getPos2()=='S'){
 					renvoiedirection.add("S");

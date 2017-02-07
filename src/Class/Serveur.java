@@ -46,4 +46,10 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		
 		return liste;
 	}
+
+	@Override
+	public Labyrinthe GetLabyrinthe() throws RemoteException {
+		// TODO Auto-generated method stub
+		return labyrinthe1;
+	}
 }

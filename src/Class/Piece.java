@@ -20,7 +20,9 @@ public class Piece implements Serializable{
 		this.id = id;
 		this.pos = pos;
 	}
-	
+	public Piece(){
+		
+	}
 
 	public int getId() {
 		return id;
@@ -58,6 +60,14 @@ public class Piece implements Serializable{
 		piece.setPorte(liste);
 		return piece ; 
 	}
+public Piece ajoutMonstre(Piece p ,Monstre m){
+	ArrayList<Monstre> liste = new ArrayList<Monstre>();
+	liste = p.getMonstre();
+	 p.setMonstre(liste);
+	 
+	 return p;
+	}
+
 	
 	public void delJoueur(Joueur joueur, Piece piece){
 		piece.listJoueur.remove(joueur);

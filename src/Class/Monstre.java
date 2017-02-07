@@ -1,12 +1,17 @@
 package Class;
 
-public class Monstre {
+import java.io.Serializable;
+
+public class Monstre implements Serializable{
 	private int vie;
 	private String nom ;
-	public Monstre() {
-		this.nom = "Monstre" ;
-		this.vie= 5; 
+	
+	
+	public Monstre(String nom ,int vie){
+		this.nom=nom;
+		this.vie=vie;
 	}
+	
 	public int getVie() {
 		return vie;
 	}
@@ -19,5 +24,5 @@ public class Monstre {
 	public void setNom(String nom) {
 		this.nom = nom;
 	} 
-
+	
 }

@@ -48,6 +48,8 @@ public class Labyrinthe {
 		//Creation piece 2
 		Position p2 =new Position (3,1);
 		Piece piece2= new Piece(p2,2);
+		Monstre Monstre1 = new Monstre("quagga sauvage" , 5);
+		piece2.ajoutMonstre(piece2, Monstre1);
 		//Creation porte piece1/piece2
 		Porte p1_2 = new Porte(piece1,'S',piece2,'N');
 		//Ajout porte 

@@ -70,7 +70,7 @@ public class Menu {
 					renvoieID.add(direction.get(i).getPiece2());
 				//	System.out.println("check N");
 				}
-					
+					 
 				if (direction.get(i).getPos1()=='S'){
 					renvoiedirection.add("S");
 				

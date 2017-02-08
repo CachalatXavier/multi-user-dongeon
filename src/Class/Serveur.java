@@ -32,11 +32,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	      	
 	}
 
-	@Override
-	public void seDeplacer(char dest) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
 	 
 	public ArrayList<Porte> porteDispo(Piece piece){
 		//int i =0; 

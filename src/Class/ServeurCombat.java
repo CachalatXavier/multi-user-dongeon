@@ -47,7 +47,7 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 				}
 				if(v2.getPdv()== 0){
 				return v2;
-				}
+				}  
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

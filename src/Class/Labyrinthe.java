@@ -1,9 +1,5 @@
 package Class;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Labyrinthe  {
@@ -41,7 +37,7 @@ public class Labyrinthe  {
 
 	
 	public static Labyrinthe CreationLabyrinthe(){
-		ArrayList Donjon = new ArrayList<Piece>(); 
+		ArrayList<Piece> Donjon = new ArrayList<Piece>(); 
 		Labyrinthe labyrinthe1 = new Labyrinthe(Donjon);
 		
 		

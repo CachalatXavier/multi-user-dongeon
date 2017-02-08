@@ -15,14 +15,11 @@ public class client {
 		try {
 			
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
-			interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
+		//	interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 			Menu M = new Menu();
 			
 			Joueur J = new Joueur();
-			J = M.Menu1(J);
-			
-			 
-			
+			J = M.Menu1(J , I);
 
 			while (1>0){
 				ArrayList<Porte> direction = new ArrayList<Porte>();
@@ -32,7 +29,10 @@ public class client {
 			direction = I.porteDispo(J.getPiece());
 			//System.out.println(direction);
 			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
-			 C.DetectionMonstre(J.getPiece());
+			/* if (I.DetectionMonstre(J.getPiece())==1){
+				System.out.println("il y a des monstre"); 
+			 }
+			 else System.out.println("il n'y a pas de montre");*/
 			}
 		
 			

@@ -10,6 +10,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 
 	public Serveur() throws RemoteException {
 		super();
+		this.labyrinthe1 = labyrinthe1 ;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -47,9 +48,22 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		return liste;
 	}
 
-	@Override
-	public Labyrinthe GetLabyrinthe() throws RemoteException {
-		// TODO Auto-generated method stub
-		return labyrinthe1;
+	
+	public int DetectionMonstre(Piece piece) {
+		 
+		/*
+		int index = labyrinthe1.getDonjon().indexOf(piece);
+		if ( labyrinthe1.getDonjon().get(index).getMonstre() == null){
+			return 0 ;
+		}
+		*/
+		return 1;
 	}
+
+	@Override
+	public Piece getPiece1() throws RemoteException {
+		return labyrinthe1.Donjon.get(0);
+		
+	}
+
 }

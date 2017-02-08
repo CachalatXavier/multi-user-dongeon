@@ -11,6 +11,7 @@ public class Joueur extends Vivant {
 	public Joueur(String Nom)  {
 		super(Nom,10);
 		this.piece = piece; 
+		this.LastPosition = LastPosition ;
 	}
 
 	public Piece getLastPosition() {
@@ -26,7 +27,7 @@ public class Joueur extends Vivant {
 		this.piece = piece;
 	}
 
-	public void seDeplacer(char dest){
+	/*public void seDeplacer(char dest){
 		Piece pieceActuelle = this.getPiece();
 		Position pos = new Position(pieceActuelle.getPos().getX(),pieceActuelle.getPos().getY());
 		if (dest == 'N'){
@@ -47,8 +48,8 @@ public class Joueur extends Vivant {
 		}
 		pieceActuelle.setPos(pos);
 		
-	}
-	public Joueur creationPersoJoueur(Joueur J) {
+	} */
+	public Joueur creationPersoJoueur(Joueur J, Piece piece1) {
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
 		Scanner perso = new Scanner(System.in);
@@ -59,16 +60,15 @@ public class Joueur extends Vivant {
 		  			+ "Que la chance vous sourie aventurier....");
 		
 			J.setNom(nom);
-			Position pos1 = new Position(3,0);
-			Piece Piece1 = new Piece(pos1,1);
-			J.setPiece(Piece1);
+			
+			J.setPiece(piece1);
 		  	return J;
 	}
-	public Joueur MAJjoueurPos(Joueur j , char direction , int ID ){
+	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece ){
 		j.LastPosition=j.getPiece();
 		j.getPiece().delJoueur(j, getPiece());//Suppression du joueur de l'array joueur de l'ancienne piece
-		j.getPiece().setId(ID);
-		j.seDeplacer(direction);
+		j.setPiece(NewPiece);
+		//j.seDeplacer(direction);
 		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j;
 	}

@@ -19,15 +19,14 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		
 		LocateRegistry.createRegistry(1101);
 		ServeurCombat obj = new ServeurCombat();
-		Naming.bind("ServeurDeCombat", obj);
+		Naming.bind("ServeurCombat", obj);
 		System.out.println("Serveur de Combat déclarée");
 		
 	}
 	
 	public int DetectionMonstre(Piece p) throws RemoteException {	
-		lab.recupererLabyrinthe();
-		Piece salle = lab.Donjon.get(p.getId());
-		int i=salle.getMonstre().size();
+		int i =0 ;
+		
 		return i;
 	}
 	

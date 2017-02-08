@@ -6,7 +6,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class Labyrinthe {
+public class Labyrinthe  {
 	public ArrayList<Piece> Donjon = new ArrayList<Piece>(); 
 	public ArrayList<Porte> SearchPorte = new ArrayList<Porte>(); 
 	
@@ -39,19 +39,6 @@ public class Labyrinthe {
 		SearchPorte = searchPorte;
 	}
 
-	public Labyrinthe recupererLabyrinthe(){
-		interfaceObjetSeDeplacer I;
-		try {
-			I = (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
-			Labyrinthe Labyrinthe1 = new  Labyrinthe();
-			Labyrinthe1 = I.GetLabyrinthe();
-			return Labyrinthe1; 
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		return null ;
-	}
 	
 	public static Labyrinthe CreationLabyrinthe(){
 		ArrayList Donjon = new ArrayList<Piece>(); 

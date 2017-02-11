@@ -61,10 +61,8 @@ public class Piece implements Serializable{
 		return piece ; 
 	}
 public Piece ajoutMonstre(Piece p ,Monstre m){
-	ArrayList<Monstre> liste = new ArrayList<Monstre>();
-	liste = p.getMonstre();
-	 p.setMonstre(liste);
-	 
+	p.getMonstre().add(m);
+		
 	 return p;
 	}
 

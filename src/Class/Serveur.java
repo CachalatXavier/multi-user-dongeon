@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer {
  	static Labyrinthe labyrinthe1 = new Labyrinthe();
@@ -31,7 +32,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	      	
 	      	
 	}
-
 	 
 	public ArrayList<Porte> porteDispo(Piece piece){
 		//int i =0; 
@@ -44,15 +44,27 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	}
 
 	
-	public int DetectionMonstre(Piece piece) {
-		 
-		/*
-		int index = labyrinthe1.getDonjon().indexOf(piece);
-		if ( labyrinthe1.getDonjon().get(index).getMonstre() == null){
-			return 0 ;
+	public boolean DetectionMonstre(int ID) {
+		boolean retour = true;
+		int i ;
+		//System.out.println(labyrinthe1.Donjon.get(0).getId());
+		//System.out.println(labyrinthe1.getDonjon().get(1).getId());
+		//System.out.println(labyrinthe1.getDonjon().get(2).getId());
+		//System.out.println(labyrinthe1.Donjon.size());
+		for (i = 0 ; labyrinthe1.Donjon.size() > i ; i++)
+		{
+			
+			if (labyrinthe1.Donjon.get(i).getId()==ID)
+			{
+				
+				if (labyrinthe1.Donjon.get(i).getMonstre().isEmpty())
+				{
+					retour = false ;
+					
+				}
+			}
 		}
-		*/
-		return 1;
+		return retour ;
 	}
 
 	@Override

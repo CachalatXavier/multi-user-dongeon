@@ -146,6 +146,7 @@ public class Menu {
 			  
 		 }		 
 		 J.MAJjoueurPos(J, choixdirection,Npiece );
+	//	 System.out.println(J.getPiece().getId());
 	}
 		
 }

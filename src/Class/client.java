@@ -28,11 +28,12 @@ public class client {
 			//System.out.println(J.getPiece().getId());
 			direction = I.porteDispo(J.getPiece());
 			//System.out.println(direction);
+			
 			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
-			/* if (I.DetectionMonstre(J.getPiece())==1){
-				System.out.println("il y a des monstre"); 
+			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
+				System.out.println("il y a des monstres"); 
 			 }
-			 else System.out.println("il n'y a pas de montre");*/
+			 else System.out.println("il n'y a pas de monstre");
 			}
 		
 			

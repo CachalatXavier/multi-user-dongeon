@@ -21,7 +21,7 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		ServeurCombat obj = new ServeurCombat();
 		Naming.bind("ServeurCombat", obj);
 		System.out.println("Serveur de Combat déclarée");
-		
+		interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 	}
 	
 	public int DetectionMonstre(Piece p) throws RemoteException {	

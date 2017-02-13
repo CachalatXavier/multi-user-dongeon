@@ -73,4 +73,29 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		
 	}
 
+	@Override
+	public void retirerlistJoueur(Joueur joueur, Piece piece) throws RemoteException {
+		// TODO Auto-generated method stub
+		labyrinthe1.Donjon.forEach(p -> 
+		{
+			if (p.getId()==piece.getId()){
+				p.getListJoueur().remove(joueur);
+				
+			}
+		});
+	}
+
+	@Override
+	public void ajoutlistJoueur(Joueur joueur, Piece piece) throws RemoteException {
+		// TODO Auto-generated method stub
+		labyrinthe1.Donjon.forEach(p -> 
+		{
+			if (p.getId()==piece.getId()){
+				p.getListJoueur().add(joueur);
+				
+			}
+		});
+	}
+	
+
 }

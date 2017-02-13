@@ -27,28 +27,7 @@ public class Joueur extends Vivant {
 		this.piece = piece;
 	}
 
-	/*public void seDeplacer(char dest){
-		Piece pieceActuelle = this.getPiece();
-		Position pos = new Position(pieceActuelle.getPos().getX(),pieceActuelle.getPos().getY());
-		if (dest == 'N'){
-			pos.setY(pos.getY()-1);
-			//System.out.println("vous allez au Nord");
-		}
-		if (dest == 'S'){
-			pos.setY(pos.getY()+1);
-			//System.out.println("vous allez au Sud");
-		}
-		if (dest == 'E'){
-			pos.setX(pos.getX()+1);
-			//System.out.println("vous allez à l'est");
-		}
-		if (dest == 'O'){
-			pos.setX(pos.getX()-1);
-			//System.out.println("vous allez à l'ouest");
-		}
-		pieceActuelle.setPos(pos);
-		
-	} */
+	
 	public Joueur creationPersoJoueur(Joueur J, Piece piece1) {
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
@@ -64,21 +43,21 @@ public class Joueur extends Vivant {
 			J.setPiece(piece1);
 		  	return J;
 	}
-	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece ){
+	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){
 		j.setLastPosition(j.getPiece()); 
-		j.getPiece().delJoueur(j, getPiece());//Suppression du joueur de l'array joueur de l'ancienne piece
+		j.getPiece().delJoueur(j, getPiece() , i);//Suppression du joueur de l'array joueur de l'ancienne piece
 		j.setPiece(NewPiece);
 		//j.seDeplacer(direction);
-		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
+		j.getPiece().addJoueur(j, getPiece(), i);//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j;
 	}
-	public Joueur Fuir (Joueur j ){
+	public Joueur Fuir (Joueur j , interfaceObjetSeDeplacer i ){
 		
-		j.getPiece().delJoueur(j, getPiece()); //Suppression du joueur de l'array joueur de l'ancienne piece
+		j.getPiece().delJoueur(j, getPiece() , i); //Suppression du joueur de l'array joueur de l'ancienne piece
 		Piece p = j.getPiece();
 		j.setPiece(getLastPosition());
 		j.setLastPosition(p);
-		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
+		j.getPiece().addJoueur(j, getPiece() , i);//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j ; 
 	}
 }

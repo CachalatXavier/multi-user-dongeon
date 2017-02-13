@@ -1,6 +1,7 @@
 package Class;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Piece implements Serializable{
@@ -67,11 +68,23 @@ public Piece ajoutMonstre(Piece p ,Monstre m){
 	}
 
 	
-	public void delJoueur(Joueur joueur, Piece piece){
+	public void delJoueur(Joueur joueur, Piece piece , interfaceObjetSeDeplacer i){
+		try {
+			i.retirerlistJoueur(joueur , piece);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		piece.listJoueur.remove(joueur);
 	}
 	
-	public void addJoueur(Joueur joueur, Piece piece) {
+	public void addJoueur(Joueur joueur, Piece piece ,interfaceObjetSeDeplacer i ) {
+		try {
+			i.ajoutlistJoueur(joueur , piece);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		piece.listJoueur.add(joueur);
 	}
 	

@@ -56,7 +56,7 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<Porte> direction, Joueur J){
+	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf){
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
@@ -145,7 +145,7 @@ public class Menu {
 			 Npiece = renvoieID.get(index);
 			  
 		 }		 
-		 J.MAJjoueurPos(J, choixdirection,Npiece );
+		 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 	//	 System.out.println(J.getPiece().getId());
 	}
 		

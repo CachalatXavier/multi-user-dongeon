@@ -65,12 +65,21 @@ public class Joueur extends Vivant {
 		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece ){
-		j.LastPosition=j.getPiece();
+		j.setLastPosition(j.getPiece()); 
 		j.getPiece().delJoueur(j, getPiece());//Suppression du joueur de l'array joueur de l'ancienne piece
 		j.setPiece(NewPiece);
 		//j.seDeplacer(direction);
 		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j;
+	}
+	public Joueur Fuir (Joueur j ){
+		
+		j.getPiece().delJoueur(j, getPiece()); //Suppression du joueur de l'array joueur de l'ancienne piece
+		Piece p = j.getPiece();
+		j.setPiece(getLastPosition());
+		j.setLastPosition(p);
+		j.getPiece().addJoueur(j, getPiece());//Ajout du joueur dans l'array joueur de la nouvelle piece
+		return j ; 
 	}
 }
 

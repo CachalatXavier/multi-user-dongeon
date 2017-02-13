@@ -24,11 +24,6 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 	}
 	
-	public int DetectionMonstre(Piece p) throws RemoteException {	
-		int i =0 ;
-		
-		return i;
-	}
 	
 	public Vivant Combat(Piece p,Vivant v1,Vivant v2){
 		
@@ -48,12 +43,7 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 				if(v2.getPdv()== 0){
 				return v2;
 				}  
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					//e.printStackTrace();
-				}
+				
 		}
 
 	}

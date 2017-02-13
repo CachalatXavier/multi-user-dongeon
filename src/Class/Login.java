@@ -12,7 +12,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Comment;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -27,6 +27,7 @@ public class Login {
 		// TODO Auto-generated method stub
 		Login i= new Login();
 		i.Ecrire();
+		System.out.println("Fichier crée");
 		
 	}
 	
@@ -63,7 +64,7 @@ public class Login {
 		    final TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		    final Transformer transformer = transformerFactory.newTransformer();
 		    final DOMSource source = new DOMSource(document);
-		    final StreamResult sortie = new StreamResult(new File("C:\\Users\file.xml"));
+		    final StreamResult sortie = new StreamResult(new File("C:\\Users/Public/File.xml"));
 		    //final StreamResult result = new StreamResult(System.out);
 				
 		    //prologue

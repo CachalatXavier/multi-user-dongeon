@@ -15,7 +15,7 @@ public class client {
 		try {
 			
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
-			//interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
+			interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 			Menu M = new Menu();
 			
 			Joueur J = new Joueur();
@@ -29,7 +29,7 @@ public class client {
 			direction = I.porteDispo(J.getPiece());
 			//System.out.println(direction);
 			
-			 M.Menu2(direction , J ); // direction possible en parametre et le joueur
+			 M.Menu2(direction , J , I ); // direction possible en parametre et le joueur
 			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
 				System.out.println("il y a des monstres"); 
 				System.out.println("voulez vous battre ? (1)");
@@ -41,7 +41,7 @@ public class client {
 				}
 				else {
 					System.out.println("Vous fuyez .... " );
-					J = J.Fuir(J);
+					J = J.Fuir(J , I);
 					System.out.println("vous retournez en arriére ");
 				}
 				

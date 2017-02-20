@@ -56,7 +56,7 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf){
+	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D, Alerte A){
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
@@ -120,33 +120,59 @@ public class Menu {
 		 Scanner sc = new Scanner(System.in);
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
+		 if (choixdirection == '"'){
+			tchat(sc, J, D, A); 
+		 }
 		 if (choixdirection == 'S'){
 			 System.out.println("vous aller au Sud" );
 			 index = renvoiedirection.indexOf("S");
 			 Npiece = renvoieID.get(index);
-			
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'N'){
 			 System.out.println("vous aller au Nord" );
 			 index = renvoiedirection.indexOf("N");
 			 Npiece = renvoieID.get(index);
-			 
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'E'){
 			 System.out.println("vous aller a l'Est" );
 			 index = renvoiedirection.indexOf("E");
 			
 			 Npiece = renvoieID.get(index);
-			 
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		  if (choixdirection == 'O'){
 			 System.out.println("vous aller a l'Ouest" );
 			 index = renvoiedirection.indexOf("O");
 			 Npiece = renvoieID.get(index);
-			  
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
 		 }		 
-		 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
+		 
 	//	 System.out.println(J.getPiece().getId());
+	}
+	
+	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch, Alerte A){
+	try{
+		String string = scan.nextLine();
+		String s;
+		Message msg = new Message(J, string, J.getPiece());
+		s = Ch.receiveMsg(msg, J, J.getPiece());	
+		System.out.println("Message : " + string);
+		//System.out.println(J.getAlerteMsg().getJoueur() + " : " + J.getAlerteMsg().getMsg());
+		System.out.println(A.getJoueur() + " : " + A.getMsg());
+		
+	} catch (RemoteException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 		
+	}
+	
+	public void rcvMsg(interfaceObjetDiscussion Ch, AlerteMsg alerte){
+		String s = alerte.getMsg();
+		if (s!=null){
+			System.out.println(alerte.getJoueur() + " : " + s);
+		}
 	}
 		
 }

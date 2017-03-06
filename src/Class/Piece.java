@@ -66,6 +66,10 @@ public Piece ajoutMonstre(Piece p ,Monstre m){
 		
 	 return p;
 	}
+public void retirerLastMonstre(Piece p ){
+	p.getMonstre().get(0); 
+	
+}
 
 	
 	public void delJoueur(Joueur joueur, Piece piece , interfaceObjetSeDeplacer i){

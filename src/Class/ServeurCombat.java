@@ -1,8 +1,11 @@
 package Class;
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 public class ServeurCombat extends UnicastRemoteObject implements interfaceObjetCombat {
 	Labyrinthe lab = new Labyrinthe();
@@ -23,29 +26,54 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		System.out.println("Serveur de Combat déclarée");
 		interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 	}
+
 	
-	
-	public Vivant Combat(Piece p,Vivant v1,Vivant v2){
+	public int combat(Joueur J) throws RemoteException {
 		
-		//Passer la piece en combat
-		System.out.println("Vous entrez en combat");
-		while(1>0){
+		try {
+			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
+			
+			
+			ArrayList<Monstre> lm = I.renvoieDernierMonstre(J);
+			if (lm.isEmpty()){
+				return -1 ;
+			}
+			
+			 Monstre m = lm.get(0);
+				
+			System.out.println("Vous entrez en combat");
+			int tmp = 0 ; 
 			int random = 0 + (int)(Math.random() * ((100 - 0) + 1));//Compris entre 0 et 100
 				if (random>=50){
-				v2.setPdv(v2.getPdv()-1);
-				
-				}else{
-				v1.setPdv(v1.getPdv()-1);
+				tmp = m.getPdv() ; 
+				m.setPdv((tmp-1));
+				I.MajMonstre( m , J.getPiece());
+				System.out.println("le monstre perd des pv");
 				}
-				if(v1.getPdv()== 0){
-				return v1;
+				else{
+				tmp = J.getPdv() ;
+				J.setPdv((tmp-1));
+				System.out.println("le joueur perd des pv");
 				}
-				if(v2.getPdv()== 0){
-				return v2;
-				}  
+				System.out.print("OK " + J.getPdv());
+				System.out.print("M" + m.getPdv());
+				if(J.getPdv()== 0){
+				return 0; // le joueur meurt
+				}
+				if(m.getPdv()== 0){
+				return 1 ; // le joueur tue le monstre 
+				}
 				
+				
+				
+		} catch (MalformedURLException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		return 2;
 
+		
 	}
 	
 	

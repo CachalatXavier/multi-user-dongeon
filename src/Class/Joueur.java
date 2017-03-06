@@ -39,6 +39,7 @@ public class Joueur extends Vivant {
 		  			+ "Que la chance vous sourie aventurier....");
 		
 			J.setNom(nom);
+			J.setPdv(10);
 			
 			J.setPiece(piece1);
 		  	return J;

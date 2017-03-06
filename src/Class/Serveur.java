@@ -47,10 +47,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	public boolean DetectionMonstre(int ID) {
 		boolean retour = true;
 		int i ;
-		//System.out.println(labyrinthe1.Donjon.get(0).getId());
-		//System.out.println(labyrinthe1.getDonjon().get(1).getId());
-		//System.out.println(labyrinthe1.getDonjon().get(2).getId());
-		//System.out.println(labyrinthe1.Donjon.size());
 		for (i = 0 ; labyrinthe1.Donjon.size() > i ; i++)
 		{
 			
@@ -59,12 +55,20 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 				
 				if (labyrinthe1.Donjon.get(i).getMonstre().isEmpty())
 				{
-					retour = false ;
-					
+					retour = false ;					
 				}
 			}
 		}
 		return retour ;
+	}
+	public ArrayList<Monstre> renvoieDernierMonstre(Joueur J){
+		ArrayList<Monstre> list = new ArrayList<Monstre>(); 
+		labyrinthe1.Donjon.forEach(piece -> {
+			if (piece.getId()==J.getPiece().getId()){
+				  list.addAll(piece.getMonstre()); 
+			}
+		});
+		return list;  
 	}
 
 	@Override
@@ -96,6 +100,14 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			}
 		});
 	}
-	
 
+	public void MajMonstre(Monstre m , Piece p ) throws RemoteException {
+		
+		labyrinthe1.Donjon.forEach(piece -> 
+		{
+			if (p.getId()==piece.getId()){
+				piece.retirerLastMonstre(p); 				
+			}
+		});	
+	}
 }

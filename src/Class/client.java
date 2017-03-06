@@ -28,7 +28,7 @@ public class client {
 			//System.out.println(J.getPiece().getId());
 			direction = I.porteDispo(J.getPiece());
 			//System.out.println(direction);
-			
+			System.out.println(J.getPdv());
 			 M.Menu2(direction , J , I ); // direction possible en parametre et le joueur
 			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
 				System.out.println("il y a des monstres"); 
@@ -38,6 +38,13 @@ public class client {
 				int i = sc.nextInt();
 				if (i == 1){
 					System.out.println("Que le combat commence ! ");
+					int res = C.combat(J) ; 
+					while (res==2 ) {
+						res = C.combat(J) ; 
+					}
+					if (res==-1) System.out.println("erreur");
+					if (res==0) System.out.println("Vous etes mort");
+					if (res==2) System.out.println("vous avez gagné !!");
 				}
 				else {
 					System.out.println("Vous fuyez .... " );

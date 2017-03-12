@@ -20,7 +20,7 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		LocateRegistry.createRegistry(1101);
 		ServeurCombat obj = new ServeurCombat();
 		Naming.bind("ServeurCombat", obj);
-		System.out.println("Serveur de Combat déclarée");
+		System.out.println("Serveur de Combat déclaré");
 		interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
 	}
 	

@@ -23,7 +23,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			LocateRegistry.createRegistry(1099);
 			Serveur obj = new Serveur();
 			Naming.bind("serveurseDeplacer", obj);
-			System.out.println("server seDeplacer déclarer");
+			System.out.println("Serveur seDeplacer déclaré");
 			
 			
 		  

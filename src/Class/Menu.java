@@ -56,7 +56,7 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D, Alerte A){
+	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D){
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
@@ -121,7 +121,7 @@ public class Menu {
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
 		 if (choixdirection == '"'){
-			tchat(sc, J, D, A); 
+			tchat(sc, J, D); 
 		 }
 		 if (choixdirection == 'S'){
 			 System.out.println("vous aller au Sud" );
@@ -149,31 +149,21 @@ public class Menu {
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
 		 }		 
 		 
-	//	 System.out.println(J.getPiece().getId());
 	}
 	
-	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch, Alerte A){
+	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch){
 	try{
 		String string = scan.nextLine();
 		String s;
 		Message msg = new Message(J, string, J.getPiece());
-		s = Ch.receiveMsg(msg, J, J.getPiece());	
-		System.out.println("Message : " + string);
-		//System.out.println(J.getAlerteMsg().getJoueur() + " : " + J.getAlerteMsg().getMsg());
-		System.out.println(A.getJoueur() + " : " + A.getMsg());
-		
+		s = Ch.receiveMsg(msg, J, J.getPiece());		
 	} catch (RemoteException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} 		
 	}
+
 	
-	public void rcvMsg(interfaceObjetDiscussion Ch, AlerteMsg alerte){
-		String s = alerte.getMsg();
-		if (s!=null){
-			System.out.println(alerte.getJoueur() + " : " + s);
-		}
-	}
 		
 }
 		

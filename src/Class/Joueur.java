@@ -1,11 +1,13 @@
 package Class;
 
+import java.rmi.RemoteException;
 import java.util.Scanner;
 
 public class Joueur extends Vivant {
 	private Piece piece;
 	private Piece LastPosition ; 
-	private AlerteMsg alerteMsg;
+	private String AlJoueur;
+	private String AlMsg;
 	public Joueur(){
 		
 	}
@@ -26,15 +28,7 @@ public class Joueur extends Vivant {
 	}
 	public void setPiece(Piece piece) {
 		this.piece = piece;
-	}
-	public AlerteMsg getAlerteMsg(){
-		return alerteMsg;
-	}
-	public void setAlertMsg(String joueur, String msg){
-		alerteMsg.setMsg(joueur, msg);
-		System.out.print(joueur + " : " + msg);
-	}
-	
+	}	
 	
 	public Joueur creationPersoJoueur(Joueur J, Piece piece1) {
 		//Creation Personnage

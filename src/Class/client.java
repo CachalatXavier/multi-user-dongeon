@@ -29,9 +29,14 @@ public class client {
 			//System.out.println(J.getPiece().getPos().getY());
 			//System.out.println(J.getPiece().getId());
 			direction = I.porteDispo(J.getPiece());
-			
+			//System.out.println(direction);
+<<<<<<< HEAD
+			System.out.println(J.getPdv());
+			 M.Menu2(direction , J , I ); // direction possible en parametre et le joueur
+=======
 			
 			 M.Menu2(direction , J , I, D, A); // direction possible en parametre et le joueur
+>>>>>>> origin/master
 			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
 				System.out.println("il y a des monstres"); 
 				System.out.println("voulez vous battre ? (1)");

@@ -68,7 +68,7 @@ public Piece ajoutMonstre(Piece p ,Monstre m){
 	}
 public void retirerLastMonstre(Piece p ){
 	p.getMonstre().get(0); 
-	p.getMonstre().remove(p.getMonstre().size()-1);
+	
 }
 
 	

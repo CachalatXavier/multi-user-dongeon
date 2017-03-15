@@ -100,14 +100,9 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			}
 		});
 	}
-
-	public void MajMonstre(Monstre m , Piece p ) throws RemoteException {
-		
-		labyrinthe1.Donjon.forEach(piece -> 
-		{
-			if (p.getId()==piece.getId()){
-				piece.retirerLastMonstre(p); 				
-			}
-		});	
+	public int pieceVide(Piece p){
+		if ..
 	}
+	
+	
 }

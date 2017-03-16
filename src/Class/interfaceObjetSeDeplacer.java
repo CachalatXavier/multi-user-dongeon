@@ -12,5 +12,5 @@ public interface interfaceObjetSeDeplacer extends Remote {
 	public void retirerlistJoueur (Joueur joueur, Piece piece)throws RemoteException ; 
 	public ArrayList<Monstre> renvoieDernierMonstre(Joueur J ) throws RemoteException ; 
 	public void ajoutlistJoueur(Joueur joueur, Piece piece) throws RemoteException;
-
+	public void miseAJourPosition(Joueur J, Piece nP, Piece oP) throws RemoteException;
 }

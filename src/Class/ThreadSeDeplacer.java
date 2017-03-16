@@ -14,13 +14,15 @@ public class ThreadSeDeplacer implements Runnable{
 	private Joueur J;
 	private interfaceObjetSeDeplacer I;
 	private interfaceObjetDiscussion D;
-
-	public ThreadSeDeplacer(Scanner sc, Menu M, Joueur J, interfaceObjetSeDeplacer I, interfaceObjetDiscussion D){
+	private interfaceObjetCombat C;
+	public ThreadSeDeplacer(Scanner sc, Menu M, Joueur J, interfaceObjetSeDeplacer I, interfaceObjetDiscussion D
+			,interfaceObjetCombat C){
 		this.sc = sc;
 		this.M = M;
 		this.J = J;
 		this.I = I;
 		this.D = D;
+		this.C=C;
 	}
 
 	@Override
@@ -38,21 +40,33 @@ public class ThreadSeDeplacer implements Runnable{
 					System.out.println("voulez vous battre ? (1)");
 					System.out.println("ou fuir ? (2)");
 					Scanner sc = new Scanner(System.in);
-					int i = sc.nextInt();
-					if (i == 1){
-						System.out.println("Que le combat commence ! ");
+					if (I.DetectionMonstre(J.getPiece().getId()) == true){
+						System.out.println("il y a des monstres"); 
+						System.out.println("voulez vous battre ? (1)");
+						System.out.println("ou fuir ? (2)");
+						
+						int i = sc.nextInt();
+						if (i == 1){
+							System.out.println("Que le combat commence ! ");
+							 J.setPdv(C.combat(J).getPdv());
+							
+							if (J.getPdv()==0 ) {
+								System.out.println("Vous etes mort");
+								
+							}
+							else System.out.println("vous avez gagné !!");
+							
+						}
+						else {
+							System.out.println("Vous fuyez .... " );
+							J = J.Fuir(J , I);
+							System.out.println("vous retournez en arriére ");
+						}
+						
+					 }
+					 else System.out.println("il n'y a pas de monstre");
 					}
-					else {
-						System.out.println("Vous fuyez .... " );
-						J = J.Fuir(J , I);
-						System.out.println("vous retournez en arrière ");
-					}
-					
-				 }
-				 else System.out.println("il n'y a pas de monstre");
-				
-				}
-				 catch (RemoteException e) {
+				} catch (RemoteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

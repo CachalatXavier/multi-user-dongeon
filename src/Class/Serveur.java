@@ -52,8 +52,8 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			
 			if (labyrinthe1.Donjon.get(i).getId()==ID)
 			{
-				
-				if (labyrinthe1.Donjon.get(i).getMonstre().isEmpty())
+				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size()>1);
+				if (labyrinthe1.Donjon.get(i).getListJoueur().isEmpty())
 				{
 					retour = false ;					
 				}
@@ -100,9 +100,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			}
 		});
 	}
-	public int pieceVide(Piece p){
-		if ..
-	}
+	
 	
 	
 }

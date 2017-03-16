@@ -40,13 +40,14 @@ public class client {
 				int i = sc.nextInt();
 				if (i == 1){
 					System.out.println("Que le combat commence ! ");
-					int res = C.combat(J) ; 
-					while (res==2 ) {
-						res = C.combat(J) ; 
+					 J.setPdv(C.combat(J).getPdv());
+					
+					if (J.getPdv()==0 ) {
+						System.out.println("Vous etes mort");
+						
 					}
-					if (res==-1) System.out.println("erreur");
-					if (res==0) System.out.println("Vous etes mort");
-					if (res==2) System.out.println("vous avez gagné !!");
+					else System.out.println("vous avez gagné !!");
+					
 				}
 				else {
 					System.out.println("Vous fuyez .... " );

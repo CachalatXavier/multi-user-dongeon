@@ -138,11 +138,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			}
 		});
 	}
-<<<<<<< HEAD
-	
-	
-	
-=======
 
 	public void MajMonstre(Monstre m , Piece p ) throws RemoteException {
 		
@@ -189,5 +184,4 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		// TODO Auto-generated method stub
 		
 	}
->>>>>>> origin/master
 }

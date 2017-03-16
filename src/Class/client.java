@@ -34,7 +34,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 			Menu M = new Menu();			
 			Joueur J = new Joueur();
 			J = M.Menu1(J , I);
-<<<<<<< HEAD
+
 			setJoueur(J);
 			Scanner sc = new Scanner(System.in);
 			
@@ -42,7 +42,6 @@ public class client extends UnicastRemoteObject implements Alerte {
 		ThreadDiscussion t2 = new ThreadDiscussion(sc, M, J, D);
 		t1.run();
 		t2.run();
-=======
 
 			while (1>0){
 				ArrayList<Porte> direction = new ArrayList<Porte>();
@@ -52,7 +51,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 			direction = I.porteDispo(J.getPiece());
 			
 			
-			 M.Menu2(direction , J , I, D, A); // direction possible en parametre et le joueur
+			 M.Menu2(direction , J , I, D); // direction possible en parametre et le joueur
 			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
 				System.out.println("il y a des monstres"); 
 				System.out.println("voulez vous battre ? (1)");
@@ -79,7 +78,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 			 }
 			 else System.out.println("il n'y a pas de monstre");
 			}
->>>>>>> origin/master
+
 		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

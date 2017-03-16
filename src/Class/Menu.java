@@ -22,7 +22,7 @@ public class Menu {
 	  System.out.println("  ***************************     ");
 	  System.out.println("  ***************************     ");
 	  System.out.println("  ****                   ****     ");
-	  System.out.println("  **** Dungeon et Dragon ****     ");
+	  System.out.println("  **** Donjon et Dragon ****     ");
 	  System.out.println("  ****                   ****     ");
 	  System.out.println("  ***************************     ");
 	  System.out.println("    ***********************       ");
@@ -36,12 +36,13 @@ public class Menu {
 	  System.out.println("                                  ");
 	  
 	  System.out.println("Bonjour que voulez faire ?\n"
-	  		+ "1) Créer un Personnage \n"
-	  		+ "2) Quitter \n");
+	  		+ "1) Continuer l'aventure! \n"
+	  		+ "2) Créer un Personnage \n"
+	  		+ "3) Quitter \n");
 	  Scanner menu = new Scanner(System.in);
 	  int i = menu.nextInt();
 	  
-	  if (i == 1){
+	  if (i == 2){
 				try {
 					J =J.creationPersoJoueur(J,I.getPiece1());
 				} catch (RemoteException e) {
@@ -124,26 +125,26 @@ public class Menu {
 			tchat(sc, J, D); 
 		 }
 		 if (choixdirection == 'S'){
-			 System.out.println("vous aller au Sud" );
+			 System.out.println("vous allez au Sud" );
 			 index = renvoiedirection.indexOf("S");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'N'){
-			 System.out.println("vous aller au Nord" );
+			 System.out.println("vous allez au Nord" );
 			 index = renvoiedirection.indexOf("N");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'E'){
-			 System.out.println("vous aller a l'Est" );
+			 System.out.println("vous allez a l'Est" );
 			 index = renvoiedirection.indexOf("E");
 			
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		  if (choixdirection == 'O'){
-			 System.out.println("vous aller a l'Ouest" );
+			 System.out.println("vous allez a l'Ouest" );
 			 index = renvoiedirection.indexOf("O");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
@@ -162,8 +163,7 @@ public class Menu {
 		e.printStackTrace();
 	} 		
 	}
-
-	
+		
 		
 }
 		

@@ -41,25 +41,44 @@ public class Joueur extends Vivant {
 		  			+ "Que la chance vous sourie aventurier....");
 		
 			J.setNom(nom);
+			J.setPdv(10);
 			
 			J.setPiece(piece1);
 		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){
-		j.setLastPosition(j.getPiece()); 
-		j.getPiece().delJoueur(j, getPiece() , i);//Suppression du joueur de l'array joueur de l'ancienne piece
+		Piece oldPiece = j.getPiece();
+		j.setLastPosition(oldPiece); 
+		
+		try {
+			i.miseAJourPosition(j, NewPiece, oldPiece);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		j.setPiece(NewPiece);
-		//j.seDeplacer(direction);
-		j.getPiece().addJoueur(j, getPiece(), i);//Ajout du joueur dans l'array joueur de la nouvelle piece
+		Piece p1 = j.getPiece();
+		p1.addJoueur(j);
+		oldPiece.delJoueur(j);
+		System.out.println(j.getLastPosition().getId());
+		System.out.println(j.getPiece().getId());
+		System.out.println(p1.getListJoueur().get(0).getNom());
+
+		for (int k = 0; k<p1.getListJoueur().size();k++){
+			//if (p1.getListJoueur().get(k)!= j){
+				System.out.println(p1.getListJoueur().get(k).getNom()+" est dans la pièce");
+			//}
+		}
+		
 		return j;
 	}
 	public Joueur Fuir (Joueur j , interfaceObjetSeDeplacer i ){
 		
-		j.getPiece().delJoueur(j, getPiece() , i); //Suppression du joueur de l'array joueur de l'ancienne piece
+		j.getPiece().delJoueur(j); //Suppression du joueur de l'array joueur de l'ancienne piece
 		Piece p = j.getPiece();
 		j.setPiece(getLastPosition());
 		j.setLastPosition(p);
-		j.getPiece().addJoueur(j, getPiece() , i);//Ajout du joueur dans l'array joueur de la nouvelle piece
+		j.getPiece().addJoueur(j);//Ajout du joueur dans l'array joueur de la nouvelle piece
 		return j ; 
 	}
 }

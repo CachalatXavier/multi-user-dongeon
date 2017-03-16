@@ -3,20 +3,20 @@ package Class;
 import java.io.Serializable;
 
 public class Monstre implements Serializable{
-	private int vie;
+	private int Pdv;
 	private String nom ;
 	
 	
-	public Monstre(String nom ,int vie){
+	public Monstre(String nom ,int Pdv){
 		this.nom=nom;
-		this.vie=vie;
+		this.Pdv=Pdv;
 	}
 	
-	public int getVie() {
-		return vie;
+	public int getPdv() {
+		return Pdv;
 	}
-	public void setVie(int vie) {
-		this.vie = vie;
+	public void setPdv(int Pdv) {
+		this.Pdv = Pdv;
 	}
 	public String getNom() {
 		return nom;

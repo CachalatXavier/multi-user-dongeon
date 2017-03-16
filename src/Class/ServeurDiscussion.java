@@ -117,5 +117,11 @@ public class ServeurDiscussion extends UnicastRemoteObject implements interfaceO
 		
 	}
 
+	@Override
+	public void newJoueur(Joueur joueur) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

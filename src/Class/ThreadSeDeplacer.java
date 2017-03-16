@@ -31,7 +31,7 @@ public class ThreadSeDeplacer implements Runnable{
 				ArrayList<Porte> direction = new ArrayList<Porte>();
 				try {
 					direction = I.porteDispo(J.getPiece());
-				
+					
 				M.Menu2(direction , J , I, D); // direction possible en parametre et le joueur
 				 if (I.DetectionMonstre(J.getPiece().getId()) == true){
 					System.out.println("il y a des monstres"); 
@@ -50,6 +50,7 @@ public class ThreadSeDeplacer implements Runnable{
 					
 				 }
 				 else System.out.println("il n'y a pas de monstre");
+				
 				}
 				 catch (RemoteException e) {
 					// TODO Auto-generated catch block

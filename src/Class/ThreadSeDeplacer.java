@@ -35,10 +35,6 @@ public class ThreadSeDeplacer implements Runnable{
 					direction = I.porteDispo(J.getPiece());
 					
 				M.Menu2(direction , J , I, D); // direction possible en parametre et le joueur
-				 if (I.DetectionMonstre(J.getPiece().getId()) == true){
-					System.out.println("il y a des monstres"); 
-					System.out.println("voulez vous battre ? (1)");
-					System.out.println("ou fuir ? (2)");
 					Scanner sc = new Scanner(System.in);
 					if (I.DetectionMonstre(J.getPiece().getId()) == true){
 						System.out.println("il y a des monstres"); 

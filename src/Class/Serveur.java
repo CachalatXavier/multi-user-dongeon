@@ -48,7 +48,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			if (labyrinthe1.Donjon.get(i).getId()==ID)
 			{
 				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size()>1);
-				if (labyrinthe1.Donjon.get(i).getListJoueur().isEmpty())
+				if (labyrinthe1.Donjon.get(i).getListJoueur().size()>1)
 				{
 					retour = false ;					
 				}

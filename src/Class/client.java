@@ -34,6 +34,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 			Menu M = new Menu();			
 			Joueur J = new Joueur();
 			J = M.Menu1(J , I);
+<<<<<<< HEAD
 			setJoueur(J);
 			Scanner sc = new Scanner(System.in);
 			
@@ -41,6 +42,43 @@ public class client extends UnicastRemoteObject implements Alerte {
 		ThreadDiscussion t2 = new ThreadDiscussion(sc, M, J, D);
 		t1.run();
 		t2.run();
+=======
+
+			while (1>0){
+				ArrayList<Porte> direction = new ArrayList<Porte>();
+			//System.out.println(J.getPiece().getPos().getX());
+			//System.out.println(J.getPiece().getPos().getY());
+			//System.out.println(J.getPiece().getId());
+			direction = I.porteDispo(J.getPiece());
+			
+			
+			 M.Menu2(direction , J , I, D, A); // direction possible en parametre et le joueur
+			 if (I.DetectionMonstre(J.getPiece().getId()) == true){
+				System.out.println("il y a des monstres"); 
+				System.out.println("voulez vous battre ? (1)");
+				System.out.println("ou fuir ? (2)");
+				Scanner sc = new Scanner(System.in);
+				int i = sc.nextInt();
+				if (i == 1){
+					System.out.println("Que le combat commence ! ");
+					int res = C.combat(J) ; 
+					while (res==2 ) {
+						res = C.combat(J) ; 
+					}
+					if (res==-1) System.out.println("erreur");
+					if (res==0) System.out.println("Vous etes mort");
+					if (res==2) System.out.println("vous avez gagné !!");
+				}
+				else {
+					System.out.println("Vous fuyez .... " );
+					J = J.Fuir(J , I);
+					System.out.println("vous retournez en arriére ");
+				}
+				
+			 }
+			 else System.out.println("il n'y a pas de monstre");
+			}
+>>>>>>> origin/master
 		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

@@ -33,38 +33,19 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		try {
 			interfaceObjetSeDeplacer I= (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
 			
-			
-			ArrayList<Monstre> lm = I.renvoieDernierMonstre(J);
-			if (lm.isEmpty()){
-				return -1 ;
+			if (I.pieceVide(J.getPiece())==1){ // voir si pas de joueur dans la piece
+				System.out.print("piece non vide" ); 
+				
 			}
-			
-			 Monstre m = lm.get(0);
+			else {
+				Monstre m = new Monstre("quagga", 5 );
 				
-			System.out.println("Vous entrez en combat");
-			int tmp = 0 ; 
-			int random = 0 + (int)(Math.random() * ((100 - 0) + 1));//Compris entre 0 et 100
-				if (random>=50){
-				tmp = m.getPdv() ; 
-				m.setPdv((tmp-1));
-				I.MajMonstre( m , J.getPiece());
-				System.out.println("le monstre perd des pv");
+				if (jetDeDee(J , m)==0){ // vous etes mort
+					return 0; 
 				}
-				else{
-				tmp = J.getPdv() ;
-				J.setPdv((tmp-1));
-				System.out.println("le joueur perd des pv");
-				}
-				System.out.print("OK " + J.getPdv());
-				System.out.print("M" + m.getPdv());
-				if(J.getPdv()== 0){
-				return 0; // le joueur meurt
-				}
-				if(m.getPdv()== 0){
-				return 1 ; // le joueur tue le monstre 
-				}
+				else return 2; // vous avez gagne  
 				
-				
+		}			
 				
 		} catch (MalformedURLException | NotBoundException e) {
 			// TODO Auto-generated catch block
@@ -76,6 +57,33 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		
 	}
 	
+	public int jetDeDee(Joueur J , Monstre m){
+		
+		while (1>0){
+			
+		
+		int random = 0 + (int)(Math.random() * ((100 - 0) + 1));//Compris entre 0 et 100
+		int tmp; 
+		if (random>=50){
+		tmp = m.getPdv() ; 
+		m.setPdv((tmp-1));
 	
-
+		System.out.println("le monstre perd des pv");
+		}
+		else{
+		tmp = J.getPdv() ;
+		J.setPdv((tmp-1));
+		System.out.println("le joueur perd des pv");
+		}
+		System.out.print("OK " + J.getPdv());
+		System.out.print("M" + m.getPdv());
+		if(J.getPdv()== 0){
+		return 0; // le joueur meurt
+		}
+		if(m.getPdv()== 0){
+		return 1 ; // le joueur tue le monstre 
+		}
+		return -1 ; 
+	}
+	}
 }

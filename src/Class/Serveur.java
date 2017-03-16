@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
-import java.util.function.Consumer;
 
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer, Alerte, Runnable{
  	static Labyrinthe labyrinthe1 = new Labyrinthe();
@@ -47,13 +46,15 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			
 			if (labyrinthe1.Donjon.get(i).getId()==ID)
 			{
-				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size()>1);
+				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size());
 				if (labyrinthe1.Donjon.get(i).getListJoueur().size()>1)
-				{
+				{	
+					
 					retour = false ;					
 				}
 			}
 		}
+		System.out.println(retour);
 		return retour ;
 	}
 	public ArrayList<Monstre> renvoieDernierMonstre(Joueur J){
@@ -97,11 +98,17 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 
 	
 	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){		
-		nP.addJoueur(J);//Ajout du joueur dans l'array joueur de la nouvelle piece
-		oP.delJoueur(J);//Suppression du joueur de l'array joueur de l'ancienne piece
-		System.out.println("Element ajout : " + J.getNom() + " de " + nP.getId());
-	    System.out.println("Element suppr : " + J.getNom() + " de " + oP.getId());
-		infoClients(J);
+		
+	    labyrinthe1.Donjon.forEach(p -> {
+	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
+	    		p.getListJoueur().add(J);
+	    	}
+	    	if (oP.getId()==p.getId()){ // retrait du joueur dans l'ancienne 
+	    		p.getListJoueur().remove(J);
+	    	}
+	    });
+	    
+	    infoClients(J);
 	}
 	
 	@Override
@@ -118,11 +125,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			if (p.getId()==piece.getId()){
 				p.getListJoueur().remove(joueur);
 				
-			}
-			for (int j=0 ; j<piece.getListJoueur().size(); j++){
-				if(piece.getListJoueur().get(j)==joueur){
-					piece.getListJoueur().remove(piece.getListJoueur().get(j));
-				}
 			}
 		});
 	}

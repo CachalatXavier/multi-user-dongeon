@@ -1,8 +1,5 @@
 package Class;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -62,17 +59,13 @@ public class ThreadSeDeplacer implements Runnable{
 					 }
 					 else System.out.println("il n'y a pas de monstre");
 					}
-				} catch (RemoteException e) {
+				   catch (RemoteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 			
-			
-			
-		
 	}
-}
-	
+	}
 	
 

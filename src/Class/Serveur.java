@@ -10,6 +10,7 @@ import java.util.Vector;
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer, Alerte, Runnable{
  	static Labyrinthe labyrinthe1 = new Labyrinthe();
  	private Vector list = new Vector();
+ 	private int entier;
 
 	public Serveur() throws RemoteException {
 		super();
@@ -67,14 +68,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		return list;  
 	}
 
-	public void infoClients(Joueur J){
-		try {
-			notifyListener2(J);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public void addClientListener (Alerte listener) throws java.rmi.RemoteException {
 		System.out.println("adding listener -"+listener);
@@ -91,24 +84,49 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			  Alerte listener = (Alerte) e.nextElement();
 			  Joueur J2 = listener.getJoueur();
 			  if (J2.getPiece().getId() == joueur.getPiece().getId()){
+				try {  
 				  listener.newJoueur(joueur); 
+			  } catch(RemoteException re) {
+			        System.out.println("removing listener -"+listener);
+			        list.remove(listener); }
 		    }
 		   }
 	}
 
 	
-	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){		
-		
+	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){				
 	    labyrinthe1.Donjon.forEach(p -> {
 	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
 	    		p.getListJoueur().add(J);
+	    		System.out.println("New piece : " + p.getListJoueur().toString());
 	    	}
 	    	if (oP.getId()==p.getId()){ // retrait du joueur dans l'ancienne 
-	    		p.getListJoueur().remove(J);
+	    		 System.out.println("Old piece : " + p.getListJoueur().toString());
+	    		 System.out.println(p.getListJoueur().size());
+	    		  entier = p.getListJoueur().indexOf(J.getClass());
+	    		  System.out.println("entier : " + entier);
+	    	/*	for(int i = 0; i < p.getListJoueur().size();){
+	    			if (p.getListJoueur().get(i).getNom() == J.getNom()){
+	    				p.getListJoueur().remove(i);
+	    				
+	    			}
+	  
+	    		}*/
+	    		  if (entier >= 0){
+	    			  p.getListJoueur().remove(entier);
+	    		  }
+	    		 System.out.println("Old piece : " + p.getListJoueur().toString());
+	    		 
 	    	}
+	    	
 	    });
-	    
-	    infoClients(J);
+	    System.out.println("Joueur : " + J + "    " + J.getPiece().getId() + J.getLastPosition().getId());
+	    try {
+				notifyListener2(J);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	
 	@Override

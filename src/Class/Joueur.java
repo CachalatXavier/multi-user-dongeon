@@ -48,26 +48,21 @@ public class Joueur extends Vivant {
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){
 		Piece oldPiece = j.getPiece();
-		j.setLastPosition(oldPiece); 
-		
+		j.setLastPosition(oldPiece); 		
+		j.setPiece(NewPiece);
+		Piece p1 = j.getPiece();
+		p1.addJoueur(j);
+		oldPiece.delJoueur(j);
 		try {
 			i.miseAJourPosition(j, NewPiece, oldPiece);
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		j.setPiece(NewPiece);
-		Piece p1 = j.getPiece();
-		p1.addJoueur(j);
-		oldPiece.delJoueur(j);
-		System.out.println(j.getLastPosition().getId());
-		System.out.println(j.getPiece().getId());
-		System.out.println(p1.getListJoueur().get(0).getNom());
-
 		for (int k = 0; k<p1.getListJoueur().size();k++){
-			//if (p1.getListJoueur().get(k)!= j){
+			if (p1.getListJoueur().get(k)!= j){
 				System.out.println(p1.getListJoueur().get(k).getNom()+" est dans la pièce");
-			//}
+			}
 		}
 		
 		return j;

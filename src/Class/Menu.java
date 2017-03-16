@@ -22,7 +22,7 @@ public class Menu {
 	  System.out.println("  ***************************     ");
 	  System.out.println("  ***************************     ");
 	  System.out.println("  ****                   ****     ");
-	  System.out.println("  **** Dungeon et Dragon ****     ");
+	  System.out.println("  **** Donjon et Dragon ****     ");
 	  System.out.println("  ****                   ****     ");
 	  System.out.println("  ***************************     ");
 	  System.out.println("    ***********************       ");
@@ -36,12 +36,13 @@ public class Menu {
 	  System.out.println("                                  ");
 	  
 	  System.out.println("Bonjour que voulez faire ?\n"
-	  		+ "1) Créer un Personnage \n"
-	  		+ "2) Quitter \n");
+	  		+ "1) Continuer l'aventure! \n"
+	  		+ "2) Créer un Personnage \n"
+	  		+ "3) Quitter \n");
 	  Scanner menu = new Scanner(System.in);
 	  int i = menu.nextInt();
 	  
-	  if (i == 1){
+	  if (i == 2){
 				try {
 					J =J.creationPersoJoueur(J,I.getPiece1());
 				} catch (RemoteException e) {
@@ -56,7 +57,7 @@ public class Menu {
 		      return null; 
 	  }		
 	}
-	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D, Alerte A){
+	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D){
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
@@ -121,59 +122,48 @@ public class Menu {
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
 		 if (choixdirection == '"'){
-			tchat(sc, J, D, A); 
+			tchat(sc, J, D); 
 		 }
 		 if (choixdirection == 'S'){
-			 System.out.println("vous aller au Sud" );
+			 System.out.println("vous allez au Sud" );
 			 index = renvoiedirection.indexOf("S");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'N'){
-			 System.out.println("vous aller au Nord" );
+			 System.out.println("vous allez au Nord" );
 			 index = renvoiedirection.indexOf("N");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		 if (choixdirection == 'E'){
-			 System.out.println("vous aller a l'Est" );
+			 System.out.println("vous allez a l'Est" );
 			 index = renvoiedirection.indexOf("E");
 			
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 		 }
 		  if (choixdirection == 'O'){
-			 System.out.println("vous aller a l'Ouest" );
+			 System.out.println("vous allez a l'Ouest" );
 			 index = renvoiedirection.indexOf("O");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
 		 }		 
 		 
-	//	 System.out.println(J.getPiece().getId());
 	}
 	
-	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch, Alerte A){
+	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch){
 	try{
 		String string = scan.nextLine();
 		String s;
 		Message msg = new Message(J, string, J.getPiece());
-		s = Ch.receiveMsg(msg, J, J.getPiece());	
-		System.out.println("Message : " + string);
-		//System.out.println(J.getAlerteMsg().getJoueur() + " : " + J.getAlerteMsg().getMsg());
-		System.out.println(A.getJoueur() + " : " + A.getMsg());
-		
+		s = Ch.receiveMsg(msg, J, J.getPiece());		
 	} catch (RemoteException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} 		
 	}
-	
-	public void rcvMsg(interfaceObjetDiscussion Ch, AlerteMsg alerte){
-		String s = alerte.getMsg();
-		if (s!=null){
-			System.out.println(alerte.getJoueur() + " : " + s);
-		}
-	}
+		
 		
 }
 		

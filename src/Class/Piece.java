@@ -3,13 +3,16 @@ package Class;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Piece implements Serializable{
 	private Position pos ;
-	private ArrayList<Joueur> listJoueur = new ArrayList<Joueur>(); 
+	public List<Joueur> listJoueur = new ArrayList<Joueur>(); 
 	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();
 	private ArrayList<Porte> Porte = new ArrayList<Porte>();
 	private int id; 
+	
 	public Piece(Position pos, int id,ArrayList<Monstre> monstre) {
 		super();
 		this.id = id; 
@@ -37,10 +40,10 @@ public class Piece implements Serializable{
 	public void setPos(Position pos) {
 		this.pos = pos;
 	}
-	public ArrayList<Joueur> getListJoueur() {
+	public List<Joueur> getListJoueur() {
 		return listJoueur;
 	}
-	public void setListJoueur(ArrayList<Joueur> listJoueur) {
+	public void setListJoueur(List<Joueur> listJoueur) {
 		this.listJoueur = listJoueur;
 	}
 	public ArrayList<Monstre> getMonstre() {
@@ -72,24 +75,15 @@ public void retirerLastMonstre(Piece p ){
 }
 
 	
-	public void delJoueur(Joueur joueur, Piece piece , interfaceObjetSeDeplacer i){
-		try {
-			i.retirerlistJoueur(joueur , piece);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void delJoueur(Joueur joueur){
+		for (int j=0 ; j<listJoueur.size(); j++){
+			if(listJoueur.get(j)==joueur){
+				listJoueur.remove(getListJoueur().get(j));
+			}
 		}
-		piece.listJoueur.remove(joueur);
-	}
-	
-	public void addJoueur(Joueur joueur, Piece piece ,interfaceObjetSeDeplacer i ) {
-		try {
-			i.ajoutlistJoueur(joueur , piece);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		piece.listJoueur.add(joueur);
+	}	
+	public void addJoueur(Joueur joueur) {
+		listJoueur.add(joueur);
 	}
 	
 }

@@ -94,33 +94,25 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	}
 
 	
-	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){				
+	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){	
+		
 	    labyrinthe1.Donjon.forEach(p -> {
-	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
-	    		p.getListJoueur().add(J);
-	    		System.out.println("New piece : " + p.getListJoueur().toString());
+	    	if (oP.getId()==p.getId()){ //enlever le joueur dans l'ancienne piece 
+	    		if (p.getListJoueur().isEmpty()==false){
+	    			System.out.println(" enlever  : " + p.getId() + p.getListJoueur().get(0));
+	    			p.getListJoueur().remove(p.getListJoueur().indexOf(J.getNom()));
+	    		}
 	    	}
-	    	if (oP.getId()==p.getId()){ // retrait du joueur dans l'ancienne 
-	    		 System.out.println("Old piece : " + p.getListJoueur().toString());
-	    		 System.out.println(p.getListJoueur().size());
-	    		  entier = p.getListJoueur().indexOf(J.getClass());
-	    		  System.out.println("entier : " + entier);
-	    	/*	for(int i = 0; i < p.getListJoueur().size();){
-	    			if (p.getListJoueur().get(i).getNom() == J.getNom()){
-	    				p.getListJoueur().remove(i);
-	    				
-	    			}
-	  
-	    		}*/
-	    		  if (entier >= 0){
-	    			  p.getListJoueur().remove(entier);
-	    		  }
-	    		 System.out.println("Old piece : " + p.getListJoueur().toString());
-	    		 
+	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
+	    		p.getListJoueur().add(J.getNom());
+	    		System.out.println("AJOUT : " + p.getId() + p.getListJoueur().get(0));
 	    	}
 	    	
 	    });
-	    System.out.println("Joueur : " + J + "    " + J.getPiece().getId() + J.getLastPosition().getId());
+	    	System.out.println("la");
+	    	
+	    	   		     	
+	   
 	    try {
 				notifyListener2(J);
 			} catch (Exception e) {
@@ -153,7 +145,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		labyrinthe1.Donjon.forEach(p -> 
 		{
 			if (p.getId()==piece.getId()){
-				p.getListJoueur().add(joueur);
+				p.getListJoueur().add(joueur.getNom());
 				
 			}
 		});

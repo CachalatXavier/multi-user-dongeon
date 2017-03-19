@@ -67,7 +67,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		});
 		return list;  
 	}
-
 	
 	public void addClientListener (Alerte listener) throws java.rmi.RemoteException {
 		System.out.println("adding listener -"+listener);
@@ -99,19 +98,16 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	    labyrinthe1.Donjon.forEach(p -> {
 	    	if (oP.getId()==p.getId()){ //enlever le joueur dans l'ancienne piece 
 	    		if (p.getListJoueur().isEmpty()==false){
-	    			System.out.println(" enlever  : " + p.getId() + p.getListJoueur().get(0));
+	    	//		System.out.println(" enlever  : " + p.getId() + p.getListJoueur().get(0));
 	    			p.getListJoueur().remove(p.getListJoueur().indexOf(J.getNom()));
 	    		}
 	    	}
 	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
 	    		p.getListJoueur().add(J.getNom());
-	    		System.out.println("AJOUT : " + p.getId() + p.getListJoueur().get(0));
+	    	//	System.out.println("AJOUT : " + p.getId() + p.getListJoueur().get(0));
 	    	}
 	    	
-	    });
-	    	System.out.println("la");
-	    	
-	    	   		     	
+	    });   		     	
 	   
 	    try {
 				notifyListener2(J);

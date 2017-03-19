@@ -29,8 +29,11 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 	
 	public Joueur combat(Joueur J) throws RemoteException {			
 		
+				
 				Monstre m = new Monstre("quagga", 5 );
-				 J.setPdv(jetDeDee(J,m).getPdv());
+				
+				
+				J.setPdv(jetDeDee(J,m).getPdv());
 				return J;
 		}			
 		

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Piece implements Serializable{
 	private Position pos ;
-	public List<Joueur> listJoueur = new ArrayList<Joueur>(); 
+	public List<String> listJoueur = new ArrayList<String>(); 
 	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();
 	private ArrayList<Porte> Porte = new ArrayList<Porte>();
 	private int id; 
@@ -40,10 +40,10 @@ public class Piece implements Serializable{
 	public void setPos(Position pos) {
 		this.pos = pos;
 	}
-	public List<Joueur> getListJoueur() {
+	public List<String> getListJoueur() {
 		return listJoueur;
 	}
-	public void setListJoueur(List<Joueur> listJoueur) {
+	public void setListJoueur(List<String> listJoueur) {
 		this.listJoueur = listJoueur;
 	}
 	public ArrayList<Monstre> getMonstre() {
@@ -75,7 +75,7 @@ public void retirerLastMonstre(Piece p ){
 }
 
 	
-	public void delJoueur(Joueur joueur){
+	/*public void delJoueur(Joueur joueur){
 		for (int j=0 ; j<listJoueur.size(); j++){
 			if(listJoueur.get(j)==joueur){
 				listJoueur.remove(getListJoueur().get(j));
@@ -84,6 +84,6 @@ public void retirerLastMonstre(Piece p ){
 	}	
 	public void addJoueur(Joueur joueur) {
 		listJoueur.add(joueur);
-	}
+	}*/
 	
 }

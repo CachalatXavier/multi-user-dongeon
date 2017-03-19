@@ -6,11 +6,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
-import java.util.function.Consumer;
 
 public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDeplacer, Alerte, Runnable{
  	static Labyrinthe labyrinthe1 = new Labyrinthe();
  	private Vector list = new Vector();
+ 	private int entier;
 
 	public Serveur() throws RemoteException {
 		super();
@@ -47,13 +47,15 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			
 			if (labyrinthe1.Donjon.get(i).getId()==ID)
 			{
-				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size()>1);
+				System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().size());
 				if (labyrinthe1.Donjon.get(i).getListJoueur().size()>1)
-				{
+				{	
+					
 					retour = false ;					
 				}
 			}
 		}
+		System.out.println(retour);
 		return retour ;
 	}
 	public ArrayList<Monstre> renvoieDernierMonstre(Joueur J){
@@ -66,14 +68,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		return list;  
 	}
 
-	public void infoClients(Joueur J){
-		try {
-			notifyListener2(J);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public void addClientListener (Alerte listener) throws java.rmi.RemoteException {
 		System.out.println("adding listener -"+listener);
@@ -90,18 +84,41 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 			  Alerte listener = (Alerte) e.nextElement();
 			  Joueur J2 = listener.getJoueur();
 			  if (J2.getPiece().getId() == joueur.getPiece().getId()){
+				try {  
 				  listener.newJoueur(joueur); 
+			  } catch(RemoteException re) {
+			        System.out.println("removing listener -"+listener);
+			        list.remove(listener); }
 		    }
 		   }
 	}
 
 	
-	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){		
-		nP.addJoueur(J);//Ajout du joueur dans l'array joueur de la nouvelle piece
-		oP.delJoueur(J);//Suppression du joueur de l'array joueur de l'ancienne piece
-		System.out.println("Element ajout : " + J.getNom() + " de " + nP.getId());
-	    System.out.println("Element suppr : " + J.getNom() + " de " + oP.getId());
-		infoClients(J);
+	public void miseAJourPosition(Joueur J, Piece nP, Piece oP){	
+		
+	    labyrinthe1.Donjon.forEach(p -> {
+	    	if (oP.getId()==p.getId()){ //enlever le joueur dans l'ancienne piece 
+	    		if (p.getListJoueur().isEmpty()==false){
+	    			System.out.println(" enlever  : " + p.getId() + p.getListJoueur().get(0));
+	    			p.getListJoueur().remove(p.getListJoueur().indexOf(J.getNom()));
+	    		}
+	    	}
+	    	if (nP.getId()==p.getId()){ // ajout le joueur dans la liste 
+	    		p.getListJoueur().add(J.getNom());
+	    		System.out.println("AJOUT : " + p.getId() + p.getListJoueur().get(0));
+	    	}
+	    	
+	    });
+	    	System.out.println("la");
+	    	
+	    	   		     	
+	   
+	    try {
+				notifyListener2(J);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	
 	@Override
@@ -128,11 +145,6 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 				p.getListJoueur().remove(joueur);
 				
 			}
-			for (int j=0 ; j<piece.getListJoueur().size(); j++){
-				if(piece.getListJoueur().get(j)==joueur){
-					piece.getListJoueur().remove(piece.getListJoueur().get(j));
-				}
-			}
 		});
 	}
 
@@ -142,7 +154,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		labyrinthe1.Donjon.forEach(p -> 
 		{
 			if (p.getId()==piece.getId()){
-				p.getListJoueur().add(joueur);
+				p.getListJoueur().add(joueur.getNom());
 				
 			}
 		});

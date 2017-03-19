@@ -28,6 +28,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 				    System.out.println(emetteur + " : " + msg);
 				    client cli = new client();
 				    D.addChatListener(cli);
+				    I.addClientListener(cli);
 				
 				Menu M = new Menu();			
 				Joueur J = new Joueur();
@@ -53,6 +54,12 @@ public class client extends UnicastRemoteObject implements Alerte {
 			System.out.println(emetteur.getNom() + " : " + msg);
 		}
 	}
+	
+	public void newJoueur(Joueur joueur) throws java.rmi.RemoteException {
+		if (joueur!=null){
+			System.out.println(joueur.getNom() + " est entré dans la pièce " + joueur.getPiece().getId());
+		}
+	}
 
 	public Joueur getJoueur(){
 		return J1;
@@ -75,11 +82,6 @@ public class client extends UnicastRemoteObject implements Alerte {
 		
 	}
 
-	@Override
-	public void newJoueur(Joueur joueur) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 }

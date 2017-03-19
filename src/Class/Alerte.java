@@ -9,4 +9,5 @@ public interface Alerte extends Remote{
 	public void setMsg(String joueur, String msg, Joueur J) throws RemoteException;
 	public void newMsg(Joueur emetteur, String msg) throws RemoteException;
 	public void newJoueur(Joueur joueur) throws RemoteException;
+	
 }

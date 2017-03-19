@@ -36,6 +36,15 @@ public class Joueur extends Vivant {
 		Scanner perso = new Scanner(System.in);
 		  	String nom = perso.nextLine();
 		  	System.out.println("Votre Personnage s'appelle: "+nom);
+		  	System.out.println("Veuillez rentrer le mot de passe de votre personnage: ");
+		  	String mdp = perso.nextLine();
+		  	
+		  	Login L = new Login();
+		  	//Ajout dans la BD de connexion
+		  	
+		  	L.AjoutConnexion(nom, mdp);
+		  	//Creation du fichier
+			L.EcrireCreation(nom);
 		  	
 		  	System.out.println("Vous entrez maintenant dans le Donjon! \n"
 		  			+ "Que la chance vous sourie aventurier....");
@@ -44,6 +53,7 @@ public class Joueur extends Vivant {
 			J.setPdv(10);
 			
 			J.setPiece(piece1);
+			
 		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){

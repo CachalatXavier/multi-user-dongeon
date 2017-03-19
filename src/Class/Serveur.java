@@ -109,6 +109,15 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		return labyrinthe1.Donjon.get(0);
 		
 	}
+	
+	public Piece getPiece(int x) throws RemoteException {
+		return labyrinthe1.Donjon.get(x);
+		
+	}
+	public int getSize() throws RemoteException {
+		return labyrinthe1.Donjon.size();
+		
+	}
 
 
 	public void retirerlistJoueur(Joueur joueur, Piece piece) throws RemoteException {

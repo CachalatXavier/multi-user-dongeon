@@ -1,17 +1,22 @@
 package Class;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-
+private interfaceObjetPersistance Log;
+String test;
+ArrayList<String> Perso;
 	public Menu() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Joueur Menu1(Joueur J , interfaceObjetSeDeplacer I) {
+	public Joueur Menu1(Joueur J , interfaceObjetSeDeplacer I) throws RemoteException {
 	  System.out.println("               *                  ");
 	  System.out.println("              ***                 ");
 	  System.out.println("            *******               ");
@@ -42,6 +47,46 @@ public class Menu {
 	  Scanner menu = new Scanner(System.in);
 	  int i = menu.nextInt();
 	  
+	  if (i == 1){
+		  //ServeurPeristance object
+		 try {
+			Log=(interfaceObjetPersistance)Naming.lookup("//localhost/ServeurPersistance");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		System.out.println("Bonjour comment s'appelle votre Personnage?");
+		Scanner perso = new Scanner(System.in);
+		String nom = perso.nextLine();
+		System.out.println("Veuillez Rentrer votre Mot de Passe");
+		String mdp = perso.nextLine();
+		while(test==null){
+			test=Log.Identification(nom,mdp);
+		  }
+	  	Perso=Log.lecture(test);
+	  	
+	  	//Recherche de la piece
+	  	for (i = 0 ; I.getSize()> i ; i++)
+		{
+	  		if(I.getPiece(i).getId()==Integer.parseInt(Perso.get(4))){
+	  			
+	  		//Creation du joueur
+	  		  	J.setNom(Perso.get(0));	
+	  		  	J.setPdv(Integer.parseInt(Perso.get(1)));
+	  		  	J.setPiece(I.getPiece(i));
+	  		}
+		}
+		  return J;
+}
+	  
+	  
 	  if (i == 2){
 				try {
 					J =J.creationPersoJoueur(J,I.getPiece1());
@@ -57,6 +102,11 @@ public class Menu {
 		      return null; 
 	  }		
 	}
+	private void While(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void Menu2(ArrayList<Porte> direction, Joueur J , interfaceObjetSeDeplacer interf, interfaceObjetDiscussion D){
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
@@ -111,6 +161,14 @@ public class Menu {
 			
 				}
 			}	
+		}
+		
+		//MAJ position du Joueur dans le ficheri de Persitance
+		try {
+			Log.EcrireMAJ(J.getNom(), J.getPdv(), J.getPiece().getPos().getX(),J.getPiece().getPos().getY(), J.getPiece().getId());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		 System.out.println("                                  ");

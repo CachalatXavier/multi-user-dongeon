@@ -62,17 +62,17 @@ public class ThreadSeDeplacer implements Runnable{
 					 }
 					 else System.out.println("il n'y a pas de monstre");
 					}
-				} catch (RemoteException e) {
+				 catch (RemoteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 			
 			
-			
+	}		
 		
 	}
-}
+
 	
 	
 

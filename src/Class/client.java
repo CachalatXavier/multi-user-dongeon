@@ -32,8 +32,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 				Menu M = new Menu();			
 				Joueur J = new Joueur();
 				J = M.Menu1(J , I);
-
-				setJoueur(J);
+			setJoueur(J);
 				Scanner sc = new Scanner(System.in);
 				
 			ThreadSeDeplacer t1 = new ThreadSeDeplacer(sc, M, J, I , D, C);

@@ -1,5 +1,8 @@
 package Class;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
@@ -8,6 +11,7 @@ public class Joueur extends Vivant {
 	private Piece LastPosition ; 
 	private String AlJoueur;
 	private String AlMsg;
+	private interfaceObjetPersistance l;
 	public Joueur(){
 		
 	}
@@ -38,20 +42,40 @@ public class Joueur extends Vivant {
 		  	System.out.println("Votre Personnage s'appelle: "+nom);
 		  	System.out.println("Veuillez rentrer le mot de passe de votre personnage: ");
 		  	String mdp = perso.nextLine();
-		  	
-		  	Login L = new Login();
 		  	//Ajout dans la BD de connexion
 		  	
-		  	L.AjoutConnexion(nom, mdp);
+		  	try {
+				l=(interfaceObjetPersistance)Naming.lookup("//localhost/ServeurPersistance");
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NotBoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		  	
+		  	try {
+				l.AjoutConnexion(nom, mdp);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  	//Creation du fichier
-			L.EcrireCreation(nom);
+			try {
+				l.EcrireCreation(nom);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  	
 		  	System.out.println("Vous entrez maintenant dans le Donjon! \n"
 		  			+ "Que la chance vous sourie aventurier....");
 		
 			J.setNom(nom);
 			J.setPdv(10);
-			
 			J.setPiece(piece1);
 			
 		  	return J;

@@ -163,6 +163,18 @@ ArrayList<String> Perso;
 			}	
 		}
 		
+		try {
+			Log=(interfaceObjetPersistance)Naming.lookup("//localhost/ServeurPersistance");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//MAJ position du Joueur dans le ficheri de Persitance
 		try {
 			Log.EcrireMAJ(J.getNom(), J.getPdv(), J.getPiece().getPos().getX(),J.getPiece().getPos().getY(), J.getPiece().getId());

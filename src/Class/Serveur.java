@@ -48,10 +48,10 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		}
 		else { 
 			 for (i = 1 ; labyrinthe1.Donjon.size()>i ; i++ ){
-				 System.out.println(labyrinthe1.Donjon.get(i).getId());
-				 System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().isEmpty());
+				// System.out.println(labyrinthe1.Donjon.get(i).getId());
+				 //System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().isEmpty());
 				if  ((labyrinthe1.Donjon.get(i).getId()==ID) && (labyrinthe1.Donjon.get(i).getListJoueur().size()>1)){
-					System.out.println("DEDANS");
+					//System.out.println("DEDANS");
 					retour = false ; 
 				}
 			 }

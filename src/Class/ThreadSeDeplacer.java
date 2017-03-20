@@ -48,9 +48,13 @@ public class ThreadSeDeplacer implements Runnable{
 							
 							if (J.getPdv()==0 ) {
 								System.out.println("Vous etes mort");
+								System.exit(0);
 								
 							}
-							else System.out.println("vous avez gagné !!");
+							else {
+								System.out.println("vous avez gagné !!");
+								System.out.println("Vous avez "+ J.getPdv()+ "point de vie");
+							}
 							
 						}
 						else {

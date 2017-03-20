@@ -36,10 +36,10 @@ public class ThreadSeDeplacer implements Runnable{
 					
 				M.Menu2(direction , J , I, D); // direction possible en parametre et le joueur
 					Scanner sc = new Scanner(System.in);
-					if (I.DetectionMonstre(J.getPiece().getId()) == true){
-						//System.out.println("il y a des monstres");
-						if(J.getPiece().getMonstre().isEmpty()==false){
-						System.out.println("Un " + J.getPiece().getMonstre().get(0).getNom() + " apparaît !");
+					if (I.DetectionMonstre(J.getPiece().getId()) == true){ // il n'y a pas d'autre joueur = monstre qui apparait 
+						
+						if(J.getPiece().getMonstre().isEmpty()==false){ // en cas si le monstre n'est pas créer dans le labyrinthe
+						System.out.println("Un " + J.getPiece().getMonstre().get(0).getNom() + " apparaît !"); // nom du monstre
 						}
 						System.out.println("voulez vous battre ? (1)");
 						System.out.println("ou fuir ? (2)");
@@ -47,26 +47,26 @@ public class ThreadSeDeplacer implements Runnable{
 						int i = sc.nextInt();
 						if (i == 1){
 							System.out.println("Que le combat commence ! ");
-							 J.setPdv(C.combat(J).getPdv());
-							
-							if (J.getPdv()==0 ) {
+							 J.setPdv(C.combat(J).getPdv()); // Appelle du combat et mise à jour 
+							 								 // point du vie du joueur
+							if (J.getPdv()==0 ) { // mort du joueur
 								System.out.println("Vous etes mort");
 								System.out.println("Vous revenez au menu principal ");
-								I.retirerJoueurSalle(J);
-								M.Menu1(J, I);
+								I.retirerJoueurSalle(J); // on retire le joueur de la salle de discussion
+								M.Menu1(J, I); // relance le menu principale
 								
 								
 								
 							}
 							else {
-								System.out.println("vous avez gagné !!");
+								System.out.println("vous avez gagné !!"); // le joueur recupére tous points de vie +1
 								System.out.println("Vous avez "+ J.getPdv()+ " points de vie");
 							}
 							
 						}
 						else {
 							System.out.println("Vous fuyez .... " );
-							J = J.Fuir(J , I);
+							J = J.Fuir(J , I); // retour à la salle precedente
 							System.out.println("vous retournez en arriére ");
 						}
 						

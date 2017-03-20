@@ -28,12 +28,12 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 
 	
 	public Joueur combat(Joueur J) throws RemoteException {			
-		
-				if (J.getPiece().getMonstre().isEmpty()==false){
+			// combat du joueur contre un monstre  
+				if (J.getPiece().getMonstre().isEmpty()==false){ // recuperation du monstre dans la piece
 				Monstre m = J.getPiece().getMonstre().get(0);				
 				J.setPdv(jetDeDee(J,m).getPdv());
 				}
-				else
+				else // On crée un monstre si aucun monstre présent dans la piece
 				{
 					Monstre m2 = new Monstre("Quagga sauvage",5);
 					J.setPdv(jetDeDee(J,m2).getPdv());
@@ -42,12 +42,12 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		}			
 		
 
-	public Joueur jetDeDee(Joueur J , Monstre m){
+	public Joueur jetDeDee(Joueur J , Monstre m){ // déroulement du combat
 		int random = 0 + (int)(Math.random() * ((100 - 0) + 1));//Compris entre 0 et 100
 		int tmp = 0; 
 		int vieJoueur;
 		vieJoueur = J.getPdv();
-		int pdvm ;
+		int pdvm ; // point de vie du monstre
 		pdvm = m.getPdv();
 		while (1<2)
 		{	
@@ -68,10 +68,10 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 			if(J.getPdv()== 0){
 				return J; // le joueur meurt
 			}
-			if(m.getPdv()== 0){
+			if(m.getPdv()== 0){// le joueur tue le monstre
 				J.setPdv(vieJoueur+1);
-				m.setPdv(pdvm);
-				return J ; // le joueur tue le monstre 
+				m.setPdv(pdvm); // réinitialisation du monstre en cas qu'il revienne dans la piece
+				return J ;  
 			}
 		
 		}

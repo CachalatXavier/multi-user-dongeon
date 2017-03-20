@@ -111,8 +111,8 @@ ArrayList<String> Perso;
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
-		
-		for (i = 0 ;  i < direction.size();i++){
+		// detection des portes disponible de la piece sur le 1er attribut
+		for (i = 0 ;  i < direction.size();i++){ 
 			if (direction.get(i).getPiece1().getId()==J.getPiece().getId()){
 				
 				
@@ -139,6 +139,7 @@ ArrayList<String> Perso;
 				//	System.out.println("check E");
 				}
 			}
+			// detection des portes disponible de la piece sur le 2nd attribut
 			if (direction.get(i).getPiece2().getId()==J.getPiece().getId()){
 				if (direction.get(i).getPos2()=='N'){
 					renvoiedirection.add("N");
@@ -191,16 +192,16 @@ ArrayList<String> Perso;
 		 Scanner sc = new Scanner(System.in);
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
-	
+		 // detection du tchat
 		 if (choixdirection == '"'){
 			tchat(sc, J, D); 
-			
+		// choix de la direction
 		 }
 		 if (choixdirection == 'S'){
 			 System.out.println("vous allez au Sud" );
-			 index = renvoiedirection.indexOf("S");
-			 Npiece = renvoieID.get(index);
-			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
+			 index = renvoiedirection.indexOf("S"); 
+			 Npiece = renvoieID.get(index); // recuperation ID new piece
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );// mise a jour de la postion
 			
 		 }
 		 if (choixdirection == 'N'){
@@ -224,7 +225,7 @@ ArrayList<String> Perso;
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
 			 
-		 }
+		 } // test erreur
 		  if((choixdirection != 'O')&&(choixdirection != 'E')&&(choixdirection != 'S')&&(choixdirection != 'N')&&(choixdirection != '"')){
 			  System.out.println("Vous vous perdez dans la forêt des monstres, attention!");
 		  }

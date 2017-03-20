@@ -3,7 +3,7 @@ package Class;
 import java.io.Serializable;
 
 public class Vivant implements Serializable{
-
+// joueur et monstre auront un nom, une piece et des points de vie
 	private String nom ;
 	private Piece piece; 
 	private int pdv ;

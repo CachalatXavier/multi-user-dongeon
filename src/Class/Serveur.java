@@ -32,26 +32,26 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	      	
 	}
 	 
-	public ArrayList<Porte> porteDispo(Piece piece){
+	public ArrayList<Porte> porteDispo(Piece piece){ // renvoi les porte disponible
 		ArrayList<Porte> liste = new ArrayList<Porte>();
 		liste.addAll(labyrinthe1.getSearchPorte()); // Arryliste des porte dans la piece 
 		return liste;
 	}
 
 	
-	public boolean DetectionMonstre(int ID) {
+	public boolean DetectionMonstre(int ID) { // si il n'y a pas de joueur présent dans la piece, on renvoie qu'il y a un monstre
 		boolean retour = true;
 		int i ;
 		int tmp = 0 ; 
-		if (ID == 1){
+		if (ID == 1){ // pas de monstre piece 1, piece safe
 			retour = false;
 		}
 		else { 
-			 for (i = 1 ; labyrinthe1.Donjon.size()>i ; i++ ){
+			 for (i = 1 ; labyrinthe1.Donjon.size()>i ; i++ ){ // pour toute les piece 
 				// System.out.println(labyrinthe1.Donjon.get(i).getId());
 				 //System.out.println(labyrinthe1.Donjon.get(i).getListJoueur().isEmpty());
 				if  ((labyrinthe1.Donjon.get(i).getId()==ID) && (labyrinthe1.Donjon.get(i).getListJoueur().size()>1)){
-					//System.out.println("DEDANS");
+					// on retourne qu'il y un monstre que s'il n'y a pas d'autre joueur 
 					retour = false ; 
 				}
 			 }
@@ -206,7 +206,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 	}
 
 	@Override
-	public void retirerJoueurSalle(Joueur J) {
+	public void retirerJoueurSalle(Joueur J) { // retire le joueur en cas de mort
 		// TODO Auto-generated method stub
 		 labyrinthe1.Donjon.forEach(p -> {
 		    	if (J.getPiece().getId()==p.getId()){ //enlever le joueur dans l'ancienne piece 

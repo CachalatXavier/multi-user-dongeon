@@ -34,7 +34,7 @@ public class Joueur extends Vivant {
 		this.piece = piece;
 	}	
 	
-	public Joueur creationPersoJoueur(Joueur J, Piece piece1) {
+	public Joueur creationPersoJoueur(Joueur J, Piece piece1) { // création d'un joueur avec les attribut de base 
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
 		Scanner perso = new Scanner(System.in);
@@ -81,7 +81,7 @@ public class Joueur extends Vivant {
 		  	return J;
 	}
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){
-		Piece oldPiece = j.getPiece();
+		Piece oldPiece = j.getPiece(); 	// mise a jour de la piece du joueur
 		j.setLastPosition(oldPiece); 		
 		j.setPiece(NewPiece);
 
@@ -100,7 +100,7 @@ public class Joueur extends Vivant {
 		return j;
 	}
 	public Joueur Fuir (Joueur j , interfaceObjetSeDeplacer i ){
-		
+		// mise a jour de la piece du jour lorsqu'il fuit 
 		Piece oldPiece = j.getPiece();
 		Piece newPiece = j.getLastPosition(); 
 		j.setLastPosition(oldPiece);

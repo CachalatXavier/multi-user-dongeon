@@ -7,13 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Piece implements Serializable{
-	private Position pos ;
-	public List<String> listJoueur = new ArrayList<String>(); 
-	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>();
-	private ArrayList<Porte> Porte = new ArrayList<Porte>();
+	private Position pos ; // position X, Y 
+	public List<String> listJoueur = new ArrayList<String>();  // liste des joueur présents dans la piece
+	private ArrayList<Monstre> Monstre = new ArrayList<Monstre>(); // liste des monstre dans la piece
+	private ArrayList<Porte> Porte = new ArrayList<Porte>(); // liste des portes de la piece
 	private int id; 
 	
-	public Piece(Position pos, int id,ArrayList<Monstre> monstre) {
+	public Piece(Position pos, int id,ArrayList<Monstre> monstre) { 
 		super();
 		this.id = id; 
 		this.pos = pos;
@@ -58,7 +58,7 @@ public class Piece implements Serializable{
 	public void setPorte(ArrayList<Porte> porte) {
 		Porte = porte;
 	} 
-	public Piece ajoutPorte(Piece piece,Porte p){
+	public Piece ajoutPorte(Piece piece,Porte p){ // ajout porte dans la liste des portes
 		ArrayList<Porte> liste = new ArrayList<Porte>();
 		liste = piece.getPorte();
 		piece.setPorte(liste);

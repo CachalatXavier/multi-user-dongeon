@@ -91,11 +91,11 @@ public class Joueur extends Vivant {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		/*for (int k = 0; k<p1.getListJoueur().size();k++){
-			if (p1.getListJoueur().get(k)!= j){
-				System.out.println(p1.getListJoueur().get(k).getNom()+" est dans la pièce");
+		for (int k = 0; k<NewPiece.getListJoueur().size();k++){
+			if (NewPiece.getListJoueur().get(k)!= j.getNom()){
+				System.out.println(NewPiece.getListJoueur().get(k)+" est dans la pièce");
 			}
-		}*/
+		}
 		
 		return j;
 	}

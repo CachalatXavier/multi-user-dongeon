@@ -57,7 +57,7 @@ public class ThreadSeDeplacer implements Runnable{
 							}
 							else {
 								System.out.println("vous avez gagné !!");
-								System.out.println("Vous avez "+ J.getPdv()+ "point de vie");
+								System.out.println("Vous avez "+ J.getPdv()+ " points de vie");
 							}
 							
 						}

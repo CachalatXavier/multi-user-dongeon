@@ -47,6 +47,8 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 		int tmp = 0; 
 		int vieJoueur;
 		vieJoueur = J.getPdv();
+		int pdvm ;
+		pdvm = m.getPdv();
 		while (1<2)
 		{	
 			random = 0 + (int)(Math.random() * ((100 - 0) + 1));//Compris entre 0 et 100
@@ -68,6 +70,7 @@ public class ServeurCombat extends UnicastRemoteObject implements interfaceObjet
 			}
 			if(m.getPdv()== 0){
 				J.setPdv(vieJoueur+1);
+				m.setPdv(pdvm);
 				return J ; // le joueur tue le monstre 
 			}
 		

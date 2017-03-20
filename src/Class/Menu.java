@@ -191,20 +191,24 @@ ArrayList<String> Perso;
 		 Scanner sc = new Scanner(System.in);
 		 String str = sc.nextLine();
 		 char choixdirection =str.charAt(0);
+	
 		 if (choixdirection == '"'){
 			tchat(sc, J, D); 
+			
 		 }
 		 if (choixdirection == 'S'){
 			 System.out.println("vous allez au Sud" );
 			 index = renvoiedirection.indexOf("S");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
+			
 		 }
 		 if (choixdirection == 'N'){
 			 System.out.println("vous allez au Nord" );
 			 index = renvoiedirection.indexOf("N");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
+			
 		 }
 		 if (choixdirection == 'E'){
 			 System.out.println("vous allez a l'Est" );
@@ -212,13 +216,20 @@ ArrayList<String> Perso;
 			
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
+			
 		 }
 		  if (choixdirection == 'O'){
 			 System.out.println("vous allez a l'Ouest" );
 			 index = renvoiedirection.indexOf("O");
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf ); 
-		 }		 
+			 
+		 }
+		  if((choixdirection != 'O')&&(choixdirection != 'E')&&(choixdirection != 'S')&&(choixdirection != 'N')&&(choixdirection != '"')){
+			  System.out.println("Vous vous perdez dans la forêt des monstres, attention!");
+		  }
+
+		  
 		 
 	}
 	
@@ -233,6 +244,7 @@ ArrayList<String> Perso;
 		e.printStackTrace();
 	} 		
 	}
+	
 		
 		
 }

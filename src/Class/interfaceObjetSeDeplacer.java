@@ -15,5 +15,6 @@ public interface interfaceObjetSeDeplacer extends Remote {
 	public ArrayList<Monstre> renvoieDernierMonstre(Joueur J ) throws RemoteException ; 
 	public void ajoutlistJoueur(Joueur joueur, Piece piece) throws RemoteException;
 	public void miseAJourPosition(Joueur J, Piece nP, Piece oP) throws RemoteException;
-	public void addClientListener (Alerte listener) throws java.rmi.RemoteException;
+	public void addClientListener (Alerte listener) throws java.rmi.RemoteException;	
+	public void retirerJoueurSalle (Joueur J)throws java.rmi.RemoteException;
 }

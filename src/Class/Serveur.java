@@ -204,4 +204,18 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void retirerJoueurSalle(Joueur J) {
+		// TODO Auto-generated method stub
+		 labyrinthe1.Donjon.forEach(p -> {
+		    	if (J.getPiece().getId()==p.getId()){ //enlever le joueur dans l'ancienne piece 
+		    		if (p.getListJoueur().isEmpty()==false){
+		    	//		System.out.println(" enlever  : " + p.getId() + p.getListJoueur().get(0));
+		    			p.getListJoueur().remove(p.getListJoueur().indexOf(J.getNom()));
+		    		}
+		    	}
+		 
+	});
+	}
 }

@@ -48,7 +48,11 @@ public class ThreadSeDeplacer implements Runnable{
 							
 							if (J.getPdv()==0 ) {
 								System.out.println("Vous etes mort");
-								System.exit(0);
+								System.out.println("Vous revenez au menu principal ");
+								I.retirerJoueurSalle(J);
+								M.Menu1(J, I);
+								
+								
 								
 							}
 							else {

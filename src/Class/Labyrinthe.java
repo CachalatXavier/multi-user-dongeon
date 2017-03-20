@@ -141,7 +141,7 @@ public class Labyrinthe  {
 		labyrinthe1.Donjon.add(piece7);
 		labyrinthe1.Donjon.add(piece8);
 		labyrinthe1.Donjon.add(piece9);
-		//Porte p1_2 = new Porte(piece1,piece2);
+
 		labyrinthe1.SearchPorte.add(p1_2);
 		labyrinthe1.SearchPorte.add(p2_3);
 		labyrinthe1.SearchPorte.add(p2_5);

@@ -2,6 +2,7 @@ package Class;
 
 import java.io.Serializable;
 
+// La position est composée de coordonnées x et y permettant de situer la picèe dans le donjon
 public class Position implements Serializable {
 		private int x ;
 		private int y ;

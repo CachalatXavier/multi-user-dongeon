@@ -3,6 +3,7 @@ package Class;
 import java.rmi.RemoteException;
 import java.rmi.Remote;
 
+// Interface permettant au joueur d'envoyer un message dans le tchat
 public interface interfaceObjetDiscussion extends Remote{
 	public void chat() throws RemoteException ;
 	public String receiveMsg(Message msg, Joueur J, Piece p) throws RemoteException;

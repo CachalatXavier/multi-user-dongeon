@@ -78,7 +78,6 @@ public class ServeurPersistance extends UnicastRemoteObject implements interface
 		while (scanner.hasNextLine()) {
 		   final String lineFromFile = scanner.nextLine();
 		   if(lineFromFile.contains(nom)) { 
-		      //Suprise motherfucker
 		       System.out.println("Nom Correct");
 			   
 		       
@@ -91,7 +90,6 @@ public class ServeurPersistance extends UnicastRemoteObject implements interface
 				while (scanner2.hasNextLine()) {
 				   final String lineFromFile2 = scanner2.nextLine();
 				   if(lineFromFile2.contains(mdp)) { 
-				      //Suprise motherfucker
 				       System.out.println("MDP Correct");
 					  scanner2.close();
 					  return nom;

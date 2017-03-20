@@ -12,7 +12,7 @@ import java.util.*;
 
 public class ServeurDiscussion extends UnicastRemoteObject implements interfaceObjetDiscussion, Alerte, Runnable{
 	//Discussion chat = new Discussion();
-	public ArrayList<Joueur> listJoueurChat = new ArrayList<Joueur>();
+
 	public ArrayList<Message> listMessage = new ArrayList<Message>();
 	private Vector list = new Vector();
 	private volatile String emetteur;
@@ -48,16 +48,19 @@ public class ServeurDiscussion extends UnicastRemoteObject implements interfaceO
         return msg; 
 	}
 	
+	// On ajoute chaque nouveau client qui se connecte dans un vecteur :
 	public void addChatListener (Alerte listener) throws java.rmi.RemoteException {
 		System.out.println("adding listener -"+listener);
 		list.add(listener); 
 	}
 
+	// On enlève les clients du vecteur s'il se déconnectent :
 	public void removeChatListener(Alerte listener)throws java.rmi.RemoteException {
 		System.out.println("removing listener -"+listener);
 		list.remove(listener); 
 	}
 	
+	// Quand un joueur écrit dans le tchat, cette méthode est appelée :
 	public String receiveMsg(Message msg, Joueur J, Piece p) throws RemoteException{
 		listMessage.add(msg);
 		System.out.println("Message reçu");
@@ -66,7 +69,7 @@ public class ServeurDiscussion extends UnicastRemoteObject implements interfaceO
 		return listMessage.get(0).getMsg();
 	}
 
-	
+	// Les clients présents dans la même pièce que l'émetteur, sont notifiés d'un nouveau message dans le tchat :
 	private void notifyListener(Joueur emetteur, String msg) throws RemoteException {
 		  for (Enumeration e = list.elements(); e.hasMoreElements();) { 
 			  Alerte listener = (Alerte) e.nextElement();

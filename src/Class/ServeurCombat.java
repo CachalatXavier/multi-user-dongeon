@@ -7,7 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class ServeurCombat extends UnicastRemoteObject implements interfaceObjetCombat {
-	Labyrinthe lab = new Labyrinthe();
+
 		public ServeurCombat() throws RemoteException {
 		super();
 		

@@ -10,6 +10,7 @@ import java.rmi.server.*;
 
 public class client extends UnicastRemoteObject implements Alerte {
 	
+	// J1 sera le joueur utilisé par le client 
 	private static Joueur J1;
 	
 	public client() throws RemoteException {}
@@ -18,6 +19,7 @@ public class client extends UnicastRemoteObject implements Alerte {
 		// TODO Auto-generated method stub
 
 			interfaceObjetSeDeplacer I;
+			// On connecte le client aux serveurs via les interfaces
 			try {
 				I = (interfaceObjetSeDeplacer)Naming.lookup("//localhost/serveurseDeplacer");
 				interfaceObjetCombat C= (interfaceObjetCombat)Naming.lookup("//localhost/ServeurCombat");
@@ -33,9 +35,9 @@ public class client extends UnicastRemoteObject implements Alerte {
 				Menu M = new Menu();			
 				Joueur J = new Joueur();
 				J = M.Menu1(J , I);
-			setJoueur(J);
+				setJoueur(J);
 				Scanner sc = new Scanner(System.in);
-				
+					
 			ThreadSeDeplacer t1 = new ThreadSeDeplacer(sc, M, J, I , D, C);
 			ThreadDiscussion t2 = new ThreadDiscussion(sc, M, J, D);
 			t1.run();
@@ -49,12 +51,14 @@ public class client extends UnicastRemoteObject implements Alerte {
 				
 	}
 	
+	// Quand un joueur écrit dans le tchat, le message est affiché par le client
 	public void newMsg(Joueur emetteur, String msg)throws java.rmi.RemoteException {
 		if (msg != null){
 			System.out.println(emetteur.getNom() + " : " + msg);
 		}
 	}
 	
+	// Quand un nouveau joueur arrive dans la pièce, les clients sont informés
 	public void newJoueur(Joueur joueur) throws java.rmi.RemoteException {
 		if (joueur!=null){
 			System.out.println(joueur.getNom() + " est entré dans la pièce " + joueur.getPiece().getId());

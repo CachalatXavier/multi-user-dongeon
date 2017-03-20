@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class Joueur extends Vivant {
 	private Piece piece;
 	private Piece LastPosition ; 
-	private String AlJoueur;
-	private String AlMsg;
 	private interfaceObjetPersistance l;
 	public Joueur(){
 		
@@ -21,12 +19,15 @@ public class Joueur extends Vivant {
 		this.LastPosition = LastPosition ;
 	}
 
+	// Retourne la pièce dans laquelle se trouvait le joueur avant de se déplacer
 	public Piece getLastPosition() {
 		return LastPosition;
 	}
 	public void setLastPosition(Piece lastPosition) {
 		LastPosition = lastPosition;
 	}
+	
+	// Retourne la pièce actuelle du joueur
 	public Piece getPiece() {
 		return piece;
 	}
@@ -34,6 +35,7 @@ public class Joueur extends Vivant {
 		this.piece = piece;
 	}	
 	
+
 	public Joueur creationPersoJoueur(Joueur J, Piece piece1) { // création d'un joueur avec les attribut de base 
 		//Creation Personnage
 		System.out.println("Bonjour comment s'appelle votre Personnage?");
@@ -80,8 +82,10 @@ public class Joueur extends Vivant {
 			
 		  	return J;
 	}
+	
+	// Mise a jour de la piece du joueur quand il se déplace
 	public Joueur MAJjoueurPos(Joueur j , char direction , Piece NewPiece , interfaceObjetSeDeplacer i){
-		Piece oldPiece = j.getPiece(); 	// mise a jour de la piece du joueur
+		Piece oldPiece = j.getPiece(); 	
 		j.setLastPosition(oldPiece); 		
 		j.setPiece(NewPiece);
 
@@ -91,6 +95,7 @@ public class Joueur extends Vivant {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		// On affiche la liste des joueurs déjà présents dans la pièce
 		for (int k = 0; k<NewPiece.getListJoueur().size();k++){
 			if (NewPiece.getListJoueur().get(k)!= j.getNom()){
 				System.out.println(NewPiece.getListJoueur().get(k)+" est dans la pièce");

@@ -71,16 +71,19 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		return list;  
 	}
 	
+	// On ajoute chaque nouveau client qui se connecte dans un vecteur
 	public void addClientListener (Alerte listener) throws java.rmi.RemoteException {
 		System.out.println("adding listener -"+listener);
 		list.add(listener); 
 	}
 
+	// Si le client se déconnecte, on le retire du vecteur
 	public void removeClientListener(Alerte listener)throws java.rmi.RemoteException {
 		System.out.println("removing listener -"+listener);
 		list.remove(listener); 
 	}
 	
+	// On notifie les clients lorsqu'un joueur s'est déplacé vers leur pièce
 	private void notifyListener2(Joueur joueur) throws RemoteException {
 		  for (Enumeration e = list.elements(); e.hasMoreElements();) { 
 			  Alerte listener = (Alerte) e.nextElement();
@@ -135,7 +138,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		
 	}
 
-
+	// Retire le joueur de la pièce dans laquelle il se trouvait précédemment :
 	public void retirerlistJoueur(Joueur joueur, Piece piece) throws RemoteException {
 		// TODO Auto-generated method stub
 		labyrinthe1.Donjon.forEach(p -> 
@@ -147,7 +150,7 @@ public class Serveur extends UnicastRemoteObject implements interfaceObjetSeDepl
 		});
 	}
 
-
+	// Ajout du joueur dans la pièce vers laquelle il s'est déplacé :
 	public void ajoutlistJoueur(Joueur joueur, Piece piece) throws RemoteException {
 		// TODO Auto-generated method stub
 		labyrinthe1.Donjon.forEach(p -> 

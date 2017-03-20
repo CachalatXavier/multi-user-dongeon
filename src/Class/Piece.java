@@ -58,7 +58,7 @@ public class Piece implements Serializable{
 	public void setPorte(ArrayList<Porte> porte) {
 		Porte = porte;
 	} 
-	public Piece ajoutPorte(Piece piece,Porte p){ // ajout porte dans la liste des portes
+	public Piece ajoutPorte(Piece piece,Porte p){ // ajout portes dans la liste des portes
 		ArrayList<Porte> liste = new ArrayList<Porte>();
 		liste = piece.getPorte();
 		piece.setPorte(liste);
@@ -74,16 +74,5 @@ public void retirerLastMonstre(Piece p ){
 	p.getMonstre().remove(p.getMonstre().size()-1);
 }
 
-	
-	/*public void delJoueur(Joueur joueur){
-		for (int j=0 ; j<listJoueur.size(); j++){
-			if(listJoueur.get(j)==joueur){
-				listJoueur.remove(getListJoueur().get(j));
-			}
-		}
-	}	
-	public void addJoueur(Joueur joueur) {
-		listJoueur.add(joueur);
-	}*/
 	
 }

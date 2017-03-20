@@ -37,7 +37,6 @@ public class Login {
 		  File file = new File("C:\\Users/Public/Connexion.txt");
 		try{
 			PrintWriter writer = new PrintWriter(new FileWriter(file, true));
-			//FileWriter writer = new FileWriter(file, true);
 			String ligne;// = System.getProperty("line.separator");
 			ligne=nom+" "+mdp;
 		    writer.println(ligne);
@@ -68,7 +67,6 @@ public class Login {
 		while (scanner.hasNextLine()) {
 		   final String lineFromFile = scanner.nextLine();
 		   if(lineFromFile.contains(nom)) { 
-		      //Suprise motherfucker
 		       System.out.println("Nom Correct");
 			   
 		       
@@ -81,7 +79,6 @@ public class Login {
 				while (scanner2.hasNextLine()) {
 				   final String lineFromFile2 = scanner2.nextLine();
 				   if(lineFromFile2.contains(mdp)) { 
-				      //Suprise motherfucker
 				       System.out.println("MDP Correct");
 					  scanner2.close(); 
 				       break;

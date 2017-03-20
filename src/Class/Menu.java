@@ -48,7 +48,7 @@ ArrayList<String> Perso;
 	  int i = menu.nextInt();
 	  
 	  if (i == 1){
-		  //ServeurPeristance object
+		  //ServeurPersistance object
 		 try {
 			Log=(interfaceObjetPersistance)Naming.lookup("//localhost/ServeurPersistance");
 		} catch (MalformedURLException e) {
@@ -111,7 +111,7 @@ ArrayList<String> Perso;
 		 int i ; 
 		 ArrayList<String> renvoiedirection = new ArrayList<String>();
 		 ArrayList<Piece> renvoieID = new ArrayList<Piece>();
-		// detection des portes disponible de la piece sur le 1er attribut
+		// detection des portes disponibles de la piece sur le 1er attribut
 		for (i = 0 ;  i < direction.size();i++){ 
 			if (direction.get(i).getPiece1().getId()==J.getPiece().getId()){
 				
@@ -139,7 +139,7 @@ ArrayList<String> Perso;
 				//	System.out.println("check E");
 				}
 			}
-			// detection des portes disponible de la piece sur le 2nd attribut
+			// detection des portes disponibles de la piece sur le 2nd attribut
 			if (direction.get(i).getPiece2().getId()==J.getPiece().getId()){
 				if (direction.get(i).getPos2()=='N'){
 					renvoiedirection.add("N");
@@ -176,7 +176,7 @@ ArrayList<String> Perso;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//MAJ position du Joueur dans le ficheri de Persitance
+		//MAJ position du Joueur dans le fichier de Persistance
 		try {
 			Log.EcrireMAJ(J.getNom(), J.getPdv(), J.getPiece().getPos().getX(),J.getPiece().getPos().getY(), J.getPiece().getId());
 		} catch (RemoteException e) {
@@ -201,7 +201,7 @@ ArrayList<String> Perso;
 			 System.out.println("vous allez au Sud" );
 			 index = renvoiedirection.indexOf("S"); 
 			 Npiece = renvoieID.get(index); // recuperation ID new piece
-			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );// mise a jour de la postion
+			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );// mise a jour de la position
 			
 		 }
 		 if (choixdirection == 'N'){
@@ -213,8 +213,7 @@ ArrayList<String> Perso;
 		 }
 		 if (choixdirection == 'E'){
 			 System.out.println("vous allez a l'Est" );
-			 index = renvoiedirection.indexOf("E");
-			
+			 index = renvoiedirection.indexOf("E");			
 			 Npiece = renvoieID.get(index);
 			 J.MAJjoueurPos(J, choixdirection,Npiece , interf );
 			
@@ -234,6 +233,7 @@ ArrayList<String> Perso;
 		 
 	}
 	
+	// Méthode pour que le joueur écrive dans le tchat
 	public void tchat (Scanner scan, Joueur J, interfaceObjetDiscussion Ch){
 	try{
 		String string = scan.nextLine();
